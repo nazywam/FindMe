@@ -1,5 +1,11 @@
 package findme.findme;
 
+import android.util.Log;
+
+import com.google.android.gms.maps.GoogleMap;
+
+import java.io.File;
+
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 
 /**
@@ -8,7 +14,10 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 public class MapParser {
     private Kml kml;
 
-    public MapParser(){
+    public MapParser(GoogleMap mMap){
+
+        File f = new File("Example.kml");
+        kml = Kml.unmarshal(new File("Example.kml"));
 
     }
 
