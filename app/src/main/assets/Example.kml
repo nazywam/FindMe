@@ -4,348 +4,48 @@
 		<name>Example</name>
 		<description><![CDATA[]]></description>
 		<Folder>
-			<name>points</name>
+			<name>Warstwa bez nazwy</name>
 			<Placemark>
-				<name>Kościół pw. Najświętszego Zbawiciela</name>
-				<description><![CDATA[description: -<br>beaconId: qLWV<br>image: church1.png]]></description>
+				<name>Punkt 1</name>
+				<description><![CDATA[TakiSobie, point1.jpg, 123321, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>-</value>
-					</Data>
-					<Data name='beaconId'>
-						<value>qLWV</value>
-					</Data>
-					<Data name='image'>
-						<value>church1.png</value>
-					</Data>
-				</ExtendedData>
 				<Point>
-					<coordinates>19.1219566,50.267853200000005,0.0</coordinates>
+					<coordinates>17.9245806,50.6704491,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Liceum Ogólnokształcące nr VI im J. Długosza</name>
-				<description><![CDATA[description: -<br>beaconId: ekri<br>image: modern1.png]]></description>
+				<name>Punkt 2</name>
+				<description><![CDATA[Powiedzmy, point2.jpg, 1231, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>-</value>
-					</Data>
-					<Data name='beaconId'>
-						<value>ekri</value>
-					</Data>
-					<Data name='image'>
-						<value>modern1.png</value>
-					</Data>
-				</ExtendedData>
 				<Point>
-					<coordinates>19.0947141,50.2622028,0.0</coordinates>
+					<coordinates>17.9271448,50.6703471,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Kościół ewangelicko-augsburski Zbawiciela w Szopienicach</name>
-				<description><![CDATA[description: Kościół Zbawiciela w Katowicach-Szopienicach − kościół ewangelicki Parafii Ewangelicko-Augsburskiej w Szopienicach<br>beaconId: R1hw<br>image: church2.png]]></description>
+				<name>Punkt 3</name>
+				<description><![CDATA[Ahaa, point3.jpg, 3213, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>Kościół Zbawiciela w Katowicach-Szopienicach − kościół ewangelicki Parafii Ewangelicko-Augsburskiej w Szopienicach</value>
-					</Data>
-					<Data name='beaconId'>
-						<value>R1hw</value>
-					</Data>
-					<Data name='image'>
-						<value>church2.png</value>
-					</Data>
-				</ExtendedData>
 				<Point>
-					<coordinates>19.091379,50.263266,0.0</coordinates>
+					<coordinates>17.9281104,50.6681439,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Walcownia Cynku</name>
-				<description><![CDATA[description: Muzeum Hutnictwa Cynku w Katowicach<br>beaconId: 04EJ<br>image: castle1.png]]></description>
+				<name>Punkt 4</name>
+				<description><![CDATA[HahaNoNie, point5.jpg, 9821, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>Muzeum Hutnictwa Cynku w Katowicach</value>
-					</Data>
-					<Data name='beaconId'>
-						<value>04EJ</value>
-					</Data>
-					<Data name='image'>
-						<value>castle1.png</value>
-					</Data>
-				</ExtendedData>
 				<Point>
-					<coordinates>19.0797704,50.2626659,0.0</coordinates>
+					<coordinates>17.9327345,50.6678243,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Miejski Dom Kultury Szopienice</name>
-				<description><![CDATA[description: -<br>beaconId: 12345<br>image: modern1.png]]></description>
+				<name>Punkt 5</name>
+				<description><![CDATA[WIQEWQASD, point5.jpg, 666, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>-</value>
-					</Data>
-					<Data name='beaconId'>
-						<value>12345</value>
-					</Data>
-					<Data name='image'>
-						<value>modern1.png</value>
-					</Data>
-				</ExtendedData>
 				<Point>
-					<coordinates>19.0778392,50.2703082,0.0</coordinates>
+					<coordinates>17.9360712,50.6665187,0.0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
-		<Folder>
-			<name>path</name>
-			<Placemark>
-				<name>Directions from Kościół pw. Najświętszego Zbawiciela
- to Liceum Ogólnokształcące nr VI im J. Długosza</name>
-				<styleUrl>#line-1267FF-5-nodesc</styleUrl>
-				<LineString>
-					<tessellate>1</tessellate>
-					<coordinates>19.12174,50.26764,0.0 19.1242,50.26663,0.0 19.1242,50.26658,0.0 19.1242,50.26654,0.0 19.12416,50.26649,0.0 19.12411,50.26644,0.0 19.12394,50.26626,0.0 19.12393,50.26625000000001,0.0 19.12421,50.26614,0.0 19.12429,50.2661,0.0 19.12454,50.266,0.0 19.1246,50.26597,0.0 19.12468,50.26594,0.0 19.12477,50.26587,0.0 19.12483,50.26577000000001,0.0 19.12485,50.26572,0.0 19.12486,50.26566,0.0 19.12489,50.265600000000006,0.0 19.12494,50.26548,0.0 19.12498,50.26542,0.0 19.125140000000002,50.26524,0.0 19.125290000000003,50.26511,0.0 19.12535,50.26506,0.0 19.12537,50.26503,0.0 19.12538,50.26501,0.0 19.12541,50.265,0.0 19.12551,50.26494,0.0 19.12554,50.26492,0.0 19.125550000000004,50.26491,0.0 19.125550000000004,50.2649,0.0 19.125550000000004,50.26488,0.0 19.12554,50.26488,0.0 19.12552,50.26481,0.0 19.12551,50.26479,0.0 19.1255,50.26478,0.0 19.1255,50.26477,0.0 19.1255,50.26476,0.0 19.12551,50.26474,0.0 19.12536,50.2648,0.0 19.12538,50.26474,0.0 19.1254,50.26469,0.0 19.12542,50.26460000000001,0.0 19.1256,50.26453,0.0 19.1257,50.26446,0.0 19.12576,50.26441,0.0 19.12582,50.26432,0.0 19.12587,50.26423,0.0 19.12593,50.26415,0.0 19.12602,50.26408,0.0 19.12616,50.264,0.0 19.12631,50.26391,0.0 19.12646,50.26383,0.0 19.12645,50.26383,0.0 19.125940000000003,50.2637,0.0 19.123450000000002,50.26304,0.0 19.12312,50.26295,0.0 19.12298,50.26291,0.0 19.1228,50.26287000000001,0.0 19.12246,50.26283,0.0 19.12189,50.26276,0.0 19.12181,50.26275,0.0 19.12173,50.26273,0.0 19.12144,50.26265000000001,0.0 19.12115,50.26253,0.0 19.12029,50.26198,0.0 19.12007,50.26186,0.0 19.11993,50.26181,0.0 19.11952,50.26173,0.0 19.11904,50.26166,0.0 19.11845,50.26158,0.0 19.11792,50.261570000000006,0.0 19.11777,50.26158,0.0 19.11753,50.26155,0.0 19.11734,50.26156,0.0 19.11719,50.26159,0.0 19.11671,50.26167,0.0 19.11597,50.26175,0.0 19.11562,50.26182,0.0 19.11526,50.26185,0.0 19.115130000000004,50.26186,0.0 19.11499,50.26187000000001,0.0 19.11485,50.26188,0.0 19.11469,50.26189,0.0 19.11456,50.26189,0.0 19.11434,50.26188,0.0 19.11415,50.26187000000001,0.0 19.11401,50.26187000000001,0.0 19.1138,50.26188,0.0 19.113700000000005,50.26189,0.0 19.1136,50.2619,0.0 19.11206,50.26212,0.0 19.111990000000002,50.26213,0.0 19.11193,50.26215,0.0 19.111860000000004,50.26216,0.0 19.11178,50.26218,0.0 19.1117,50.2622,0.0 19.11166,50.26221,0.0 19.11161,50.262220000000006,0.0 19.11157,50.262220000000006,0.0 19.11154,50.262220000000006,0.0 19.11151,50.262220000000006,0.0 19.11148,50.262220000000006,0.0 19.11146,50.262220000000006,0.0 19.11141,50.262220000000006,0.0 19.11132,50.26224,0.0 19.11036,50.26237,0.0 19.10941,50.26249,0.0 19.1093,50.2625,0.0 19.10919,50.2625,0.0 19.10906,50.26252000000001,0.0 19.10894,50.26254,0.0 19.10883,50.26256,0.0 19.108740000000004,50.26259,0.0 19.10867,50.26262,0.0 19.1086,50.26264,0.0 19.10849,50.26266,0.0 19.10842,50.26267,0.0 19.10832,50.26269,0.0 19.10822,50.2627,0.0 19.1081,50.26272,0.0 19.10803,50.26273,0.0 19.10785,50.26214,0.0 19.10765,50.26156,0.0 19.1075,50.26106,0.0 19.10622,50.26127,0.0 19.10529,50.26143,0.0 19.10487,50.2615,0.0 19.10482,50.26151,0.0 19.10478,50.26152,0.0 19.10474,50.26153,0.0 19.10471,50.26155,0.0 19.10468,50.26156,0.0 19.10466,50.26158,0.0 19.10465,50.2616,0.0 19.10463,50.26161,0.0 19.104560000000003,50.26167,0.0 19.10451,50.26171,0.0 19.10445,50.26174000000001,0.0 19.10438,50.26177,0.0 19.1043,50.26179,0.0 19.10421,50.26179,0.0 19.10413,50.26179,0.0 19.104,50.26179,0.0 19.10385,50.26178,0.0 19.10329,50.26175,0.0 19.10316,50.26174000000001,0.0 19.10311,50.26174000000001,0.0 19.10303,50.26175,0.0 19.1029,50.26176,0.0 19.10276,50.26178,0.0 19.10245,50.26183,0.0 19.10222,50.26186,0.0 19.10208,50.26188,0.0 19.10179,50.26195,0.0 19.10157,50.26199,0.0 19.10099,50.26208,0.0 19.1007,50.26212,0.0 19.10046,50.26214,0.0 19.10015,50.26218,0.0 19.09995,50.2622,0.0 19.09993,50.2622,0.0 19.09978,50.26221,0.0 19.09938,50.26224,0.0 19.09836,50.26237,0.0 19.09788,50.26242,0.0 19.09736,50.262480000000004,0.0 19.0966,50.26255,0.0 19.09651,50.26256,0.0 19.09581,50.26263,0.0 19.0955,50.26267,0.0 19.09502,50.26265000000001,0.0 19.09502,50.26264,0.0 19.09502,50.26263,0.0 19.09502,50.26262,0.0 19.09501,50.26261,0.0 19.09501,50.2626,0.0 19.095,50.2626,0.0 19.095,50.26259,0.0 19.09499,50.26259,0.0 19.09499,50.26258,0.0 19.09498,50.26258,0.0 19.09497,50.26257,0.0 19.09502,50.26236,0.0 19.09501,50.26218,0.0</coordinates>
-				</LineString>
-			</Placemark>
-			<Placemark>
-				<name>Kościół pw. Najświętszego Zbawiciela
-</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.1217436,50.2676413,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Liceum Ogólnokształcące nr VI im J. Długosza</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0950112,50.26218,0.0</coordinates>
-				</Point>
-			</Placemark>
-		</Folder>
-		<Folder>
-			<name>path</name>
-			<Placemark>
-				<name>Directions from Liceum Ogólnokształcące nr VI im J. Długosza to Kościół ewangelicko-augsburski Zbawiciela w Szopienicach</name>
-				<styleUrl>#line-1267FF-5-nodesc</styleUrl>
-				<LineString>
-					<tessellate>1</tessellate>
-					<coordinates>19.095,50.26223,0.0 19.09498,50.26231,0.0 19.09491,50.26241,0.0 19.09476,50.26255,0.0 19.09474,50.26256,0.0 19.09473,50.26256,0.0 19.09472,50.26257,0.0 19.09471,50.26257,0.0 19.09471,50.26258,0.0 19.0947,50.26258,0.0 19.0947,50.26259,0.0 19.09469,50.26259,0.0 19.09469,50.2626,0.0 19.09468,50.2626,0.0 19.09468,50.26261,0.0 19.09467,50.26261,0.0 19.09467,50.26262,0.0 19.09467,50.26263,0.0 19.09466,50.26263,0.0 19.09466,50.26264,0.0 19.09466,50.26265000000001,0.0 19.09466,50.26266,0.0 19.09466,50.26267,0.0 19.09466,50.26268,0.0 19.09467,50.26268,0.0 19.09467,50.26269,0.0 19.09468,50.2627,0.0 19.09468,50.26271,0.0 19.094550000000005,50.26277,0.0 19.09453,50.26279,0.0 19.09452,50.26281,0.0 19.09409,50.26285,0.0 19.09348,50.26296,0.0 19.09338,50.26297,0.0 19.09297,50.26304,0.0 19.09139,50.26328,0.0</coordinates>
-				</LineString>
-			</Placemark>
-			<Placemark>
-				<name>Liceum Ogólnokształcące nr VI im J. Długosza</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0949996,50.2622298,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Kościół ewangelicko-augsburski Zbawiciela w Szopienicach</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0913853,50.2632825,0.0</coordinates>
-				</Point>
-			</Placemark>
-		</Folder>
-		<Folder>
-			<name>path</name>
-			<Placemark>
-				<name>Directions from Kościół ewangelicko-augsburski Zbawiciela w Szopienicach to Walcownia Cynku</name>
-				<styleUrl>#line-1267FF-5-nodesc</styleUrl>
-				<LineString>
-					<tessellate>1</tessellate>
-					<coordinates>19.09139,50.26328,0.0 19.09072,50.26339,0.0 19.08906,50.26366,0.0 19.08786,50.26384,0.0 19.08733,50.26392,0.0 19.08679,50.264,0.0 19.08672,50.264,0.0 19.08665,50.26402,0.0 19.08655,50.26404,0.0 19.0865,50.26406,0.0 19.08648,50.26406,0.0 19.08646,50.26407,0.0 19.08644,50.26408,0.0 19.08642,50.26409,0.0 19.08639,50.26411,0.0 19.08638,50.26412,0.0 19.08635,50.26415,0.0 19.08596,50.26425,0.0 19.08566,50.26433,0.0 19.085280000000004,50.26439,0.0 19.08478,50.26446,0.0 19.082790000000003,50.2645,0.0 19.08231,50.26449,0.0 19.08177,50.26446,0.0 19.08095,50.26441,0.0 19.08069,50.26441,0.0 19.08054,50.26442,0.0 19.08035,50.26445,0.0 19.08005,50.26449,0.0 19.0799,50.26451,0.0 19.07953,50.26457,0.0 19.07936,50.2644,0.0 19.07876,50.2638,0.0 19.07879,50.26375,0.0 19.07886,50.26354,0.0 19.07888,50.26346,0.0 19.07888,50.26345,0.0 19.07889,50.26338,0.0 19.07888,50.26330000000001,0.0 19.07884,50.26319,0.0 19.07884,50.26318,0.0 19.07881,50.26311,0.0 19.0788,50.26306,0.0 19.07881,50.26302,0.0 19.07886,50.26298,0.0 19.07888,50.26297,0.0 19.07896,50.26294,0.0 19.07921,50.26285,0.0 19.07964,50.26271,0.0 19.079670000000004,50.2627,0.0 19.07977,50.26267,0.0</coordinates>
-				</LineString>
-			</Placemark>
-			<Placemark>
-				<name>Kościół ewangelicko-augsburski Zbawiciela w Szopienicach</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0913853,50.2632825,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Walcownia Cynku</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0797745,50.2626717,0.0</coordinates>
-				</Point>
-			</Placemark>
-		</Folder>
-		<Folder>
-			<name>riddle</name>
-			<Placemark>
-				<name>Zagadka 1</name>
-				<description><![CDATA[description: Policz postumenty znajdujące się przy fontannie<br>question: 10<br>ans1: 10<br>ans2: 20<br>ans3: 30<br>correctAns: 2<br>image: modern2.png]]></description>
-				<styleUrl>#icon-503-3F5BA9</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>Policz postumenty znajdujące się przy fontannie</value>
-					</Data>
-					<Data name='question'>
-						<value>10</value>
-					</Data>
-					<Data name='ans1'>
-						<value>10</value>
-					</Data>
-					<Data name='ans2'>
-						<value>20</value>
-					</Data>
-					<Data name='ans3'>
-						<value>30</value>
-					</Data>
-					<Data name='correctAns'>
-						<value>2</value>
-					</Data>
-					<Data name='image'>
-						<value>modern2.png</value>
-					</Data>
-				</ExtendedData>
-				<Point>
-					<coordinates>19.1040874,50.2629273,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Zagadka 2</name>
-				<description><![CDATA[description: Ile drzew znajduje się z zagajniku<br>question: 7<br>ans1: 7<br>ans2: 13<br>ans3: 19<br>correctAns: 3<br>image: modern3.png]]></description>
-				<styleUrl>#icon-503-93D7E8</styleUrl>
-				<ExtendedData>
-					<Data name='description'>
-						<value>Ile drzew znajduje się z zagajniku</value>
-					</Data>
-					<Data name='question'>
-						<value>7</value>
-					</Data>
-					<Data name='ans1'>
-						<value>7</value>
-					</Data>
-					<Data name='ans2'>
-						<value>13</value>
-					</Data>
-					<Data name='ans3'>
-						<value>19</value>
-					</Data>
-					<Data name='correctAns'>
-						<value>3</value>
-					</Data>
-					<Data name='image'>
-						<value>modern3.png</value>
-					</Data>
-				</ExtendedData>
-				<Point>
-					<coordinates>19.119204200000002,50.2638806,0.0</coordinates>
-				</Point>
-			</Placemark>
-		</Folder>
-		<Folder>
-			<name>path</name>
-			<Placemark>
-				<name>Directions from Walcownia Cynku to Miejski Dom Kultury Szopienice
-</name>
-				<styleUrl>#line-1267FF-5-nodesc</styleUrl>
-				<LineString>
-					<tessellate>1</tessellate>
-					<coordinates>19.07977,50.26267,0.0 19.079670000000004,50.2627,0.0 19.07964,50.26271,0.0 19.07921,50.26285,0.0 19.07896,50.26294,0.0 19.07888,50.26297,0.0 19.07886,50.26298,0.0 19.07881,50.26302,0.0 19.0788,50.26306,0.0 19.07881,50.26311,0.0 19.07884,50.26318,0.0 19.07884,50.26319,0.0 19.07888,50.26330000000001,0.0 19.07889,50.26338,0.0 19.07888,50.26345,0.0 19.07888,50.26346,0.0 19.07886,50.26354,0.0 19.07879,50.26375,0.0 19.07876,50.2638,0.0 19.07818,50.26372,0.0 19.07753,50.26362,0.0 19.07729,50.26357,0.0 19.07696,50.26349,0.0 19.07602,50.26326,0.0 19.07507,50.263000000000005,0.0 19.07403,50.26265000000001,0.0 19.07258,50.26214,0.0 19.07249,50.26214,0.0 19.072370000000003,50.26212,0.0 19.07233,50.26212,0.0 19.07228,50.26212,0.0 19.07197,50.26215,0.0 19.07176,50.26216,0.0 19.07186,50.26272,0.0 19.07189,50.26287000000001,0.0 19.0719,50.26291,0.0 19.07196,50.2632,0.0 19.07203,50.2635,0.0 19.07208,50.26374,0.0 19.07217,50.26412,0.0 19.07226,50.26436,0.0 19.07227,50.2644,0.0 19.07235,50.26455,0.0 19.0724,50.26468,0.0 19.07247,50.26478,0.0 19.07255,50.2649,0.0 19.07262,50.26499,0.0 19.0727,50.26509,0.0 19.07281,50.26519,0.0 19.07293,50.26532,0.0 19.07306,50.26544,0.0 19.07325,50.265600000000006,0.0 19.07342,50.26571,0.0 19.07356,50.26581,0.0 19.07393,50.26601,0.0 19.07442,50.26623,0.0 19.07444,50.26624,0.0 19.07647,50.26718,0.0 19.07734,50.26759,0.0 19.07748,50.267680000000006,0.0 19.07757,50.26774,0.0 19.07774,50.2679,0.0 19.07784,50.26801,0.0 19.07772,50.26806,0.0 19.07762,50.26817,0.0 19.07761,50.26819,0.0 19.07761,50.2682,0.0 19.07761,50.26821,0.0 19.07761,50.26822,0.0 19.07762,50.26823,0.0 19.07762,50.26824,0.0 19.07763,50.26824,0.0 19.07769,50.26827,0.0 19.07778,50.26832,0.0 19.07779,50.268330000000006,0.0 19.07827,50.2688,0.0 19.07869,50.26918,0.0 19.07896,50.2694,0.0 19.07897,50.269760000000005,0.0 19.07861,50.26986,0.0 19.07839,50.2699,0.0 19.07824,50.26993000000001,0.0 19.07819,50.26995,0.0 19.07803,50.26998,0.0 19.07769,50.27007,0.0</coordinates>
-				</LineString>
-			</Placemark>
-			<Placemark>
-				<name>Walcownia Cynku</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0797745,50.2626717,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Miejski Dom Kultury Szopienice
-</name>
-				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-				<Point>
-					<coordinates>19.0776944,50.2700669,0.0</coordinates>
-				</Point>
-			</Placemark>
-		</Folder>
-		<Style id='icon-503-3F5BA9-normal'>
-			<IconStyle>
-				<color>ffA95B3F</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
-				</hotSpot>
-			</IconStyle>
-			<LabelStyle>
-				<scale>0.0</scale>
-			</LabelStyle>
-		</Style>
-		<Style id='icon-503-3F5BA9-highlight'>
-			<IconStyle>
-				<color>ffA95B3F</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
-				</hotSpot>
-			</IconStyle>
-			<LabelStyle>
-				<scale>1.1</scale>
-			</LabelStyle>
-		</Style>
-		<StyleMap id='icon-503-3F5BA9'>
-			<Pair>
-				<key>normal</key>
-				<styleUrl>#icon-503-3F5BA9-normal</styleUrl>
-			</Pair>
-			<Pair>
-				<key>highlight</key>
-				<styleUrl>#icon-503-3F5BA9-highlight</styleUrl>
-			</Pair>
-		</StyleMap>
-		<Style id='icon-503-93D7E8-normal'>
-			<IconStyle>
-				<color>ffE8D793</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
-				</hotSpot>
-			</IconStyle>
-			<LabelStyle>
-				<scale>0.0</scale>
-			</LabelStyle>
-		</Style>
-		<Style id='icon-503-93D7E8-highlight'>
-			<IconStyle>
-				<color>ffE8D793</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
-				</hotSpot>
-			</IconStyle>
-			<LabelStyle>
-				<scale>1.1</scale>
-			</LabelStyle>
-		</Style>
-		<StyleMap id='icon-503-93D7E8'>
-			<Pair>
-				<key>normal</key>
-				<styleUrl>#icon-503-93D7E8-normal</styleUrl>
-			</Pair>
-			<Pair>
-				<key>highlight</key>
-				<styleUrl>#icon-503-93D7E8-highlight</styleUrl>
-			</Pair>
-		</StyleMap>
 		<Style id='icon-503-DB4436-normal'>
 			<IconStyle>
 				<color>ff3644DB</color>
@@ -382,78 +82,6 @@
 			<Pair>
 				<key>highlight</key>
 				<styleUrl>#icon-503-DB4436-highlight</styleUrl>
-			</Pair>
-		</StyleMap>
-		<Style id='icon-503-DB4436-nodesc-normal'>
-			<IconStyle>
-				<color>ff3644DB</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
-				</hotSpot>
-			</IconStyle>
-			<LabelStyle>
-				<scale>0.0</scale>
-			</LabelStyle>
-			<BalloonStyle>
-				<text><![CDATA[<h3>$[name]</h3>]]></text>
-			</BalloonStyle>
-		</Style>
-		<Style id='icon-503-DB4436-nodesc-highlight'>
-			<IconStyle>
-				<color>ff3644DB</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
-				</hotSpot>
-			</IconStyle>
-			<LabelStyle>
-				<scale>1.1</scale>
-			</LabelStyle>
-			<BalloonStyle>
-				<text><![CDATA[<h3>$[name]</h3>]]></text>
-			</BalloonStyle>
-		</Style>
-		<StyleMap id='icon-503-DB4436-nodesc'>
-			<Pair>
-				<key>normal</key>
-				<styleUrl>#icon-503-DB4436-nodesc-normal</styleUrl>
-			</Pair>
-			<Pair>
-				<key>highlight</key>
-				<styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
-			</Pair>
-		</StyleMap>
-		<Style id='line-1267FF-5-nodesc-normal'>
-			<LineStyle>
-				<color>ffFF6712</color>
-				<width>5</width>
-			</LineStyle>
-			<BalloonStyle>
-				<text><![CDATA[<h3>$[name]</h3>]]></text>
-			</BalloonStyle>
-		</Style>
-		<Style id='line-1267FF-5-nodesc-highlight'>
-			<LineStyle>
-				<color>ffFF6712</color>
-				<width>8.0</width>
-			</LineStyle>
-			<BalloonStyle>
-				<text><![CDATA[<h3>$[name]</h3>]]></text>
-			</BalloonStyle>
-		</Style>
-		<StyleMap id='line-1267FF-5-nodesc'>
-			<Pair>
-				<key>normal</key>
-				<styleUrl>#line-1267FF-5-nodesc-normal</styleUrl>
-			</Pair>
-			<Pair>
-				<key>highlight</key>
-				<styleUrl>#line-1267FF-5-nodesc-highlight</styleUrl>
 			</Pair>
 		</StyleMap>
 	</Document>
