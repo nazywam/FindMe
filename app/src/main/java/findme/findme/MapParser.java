@@ -17,6 +17,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+
 import android.content.Context;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -25,7 +27,12 @@ import org.xmlpull.v1.XmlPullParserException;
  * Created by Michał on 2016-02-27.
  */
 public class MapParser {
+
+    public ArrayList<LatLng> waypoints;
+
     public MapParser(GoogleMap mMap, Context context) throws IOException, XmlPullParserException {
+
+        waypoints = new ArrayList<LatLng>();
 
         InputStream iStream = context.getAssets().open("Example.kml");
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
@@ -40,7 +47,11 @@ public class MapParser {
                     Float lat = Float.parseFloat(loc.split(",")[0]);
                     Float lng = Float.parseFloat(loc.split(",")[1]);
 
-                    MarkerOptions m = new MarkerOptions().position(new LatLng(lat, lng)).title(placemark.getProperty("name"));
+                    LatLng l = new LatLng(lat, lng);
+
+                    waypoints.add(l);
+
+                    MarkerOptions m = new MarkerOptions().position(l).title(placemark.getProperty("name"));
                     mMap.addMarker(m);
                 }
             }
