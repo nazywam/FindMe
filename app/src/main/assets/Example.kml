@@ -6,43 +6,51 @@
 		<Folder>
 			<name>Warstwa bez nazwy</name>
 			<Placemark>
-				<name>Punkt 1</name>
-				<description><![CDATA[TakiSobie, point1.jpg, 123321, icon.png]]></description>
+				<name>Dworzec</name>
+				<description><![CDATA[TakiSobie, 1, point1.jpg, 123321, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9245806,50.6704491,0.0</coordinates>
+					<coordinates>17.9276276,50.6625812,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Punkt 2</name>
-				<description><![CDATA[Powiedzmy, point2.jpg, 1231, icon.png]]></description>
+				<name>Pierożek</name>
+				<description><![CDATA[Powiedzmy, 2, point2.jpg, 1231, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9271448,50.6703471,0.0</coordinates>
+					<coordinates>17.9276491,50.6637986,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Punkt 3</name>
-				<description><![CDATA[Ahaa, point3.jpg, 3213, icon.png]]></description>
+				<name>Elektryk</name>
+				<description><![CDATA[Ahaa, 3, point3.jpg, 3213, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9281104,50.6681439,0.0</coordinates>
+					<coordinates>17.9329169,50.6664065,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Punkt 4</name>
-				<description><![CDATA[HahaNoNie, point5.jpg, 9821, icon.png]]></description>
+				<name>Sklepik</name>
+				<description><![CDATA[HahaNoNie, 4, point5.jpg, 9821, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9327345,50.6678243,0.0</coordinates>
+					<coordinates>17.9322946,50.6682629,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>Punkt 5</name>
-				<description><![CDATA[WIQEWQASD, point5.jpg, 666, icon.png]]></description>
+				<name>Kóściółek</name>
+				<description><![CDATA[WIQEWQASD, 5, point5.jpg, 666, icon.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9360712,50.6665187,0.0</coordinates>
+					<coordinates>17.9303205,50.67132620000001,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Szkoła</name>
+				<description><![CDATA[No nieeeee, 6, point6.jpg, 666, icon.png]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<Point>
+					<coordinates>17.9246986,50.6736177,0.0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>

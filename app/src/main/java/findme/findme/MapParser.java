@@ -18,6 +18,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import android.content.Context;
 
@@ -28,11 +30,11 @@ import org.xmlpull.v1.XmlPullParserException;
  */
 public class MapParser {
 
-    public ArrayList<LatLng> waypoints;
+    public ArrayList<WayPoint> waypoints;
 
     public MapParser(GoogleMap mMap, Context context) throws IOException, XmlPullParserException {
 
-        waypoints = new ArrayList<LatLng>();
+        waypoints = new ArrayList<WayPoint>();
 
         InputStream iStream = context.getAssets().open("Example.kml");
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
@@ -47,15 +49,29 @@ public class MapParser {
                     Float lat = Float.parseFloat(loc.split(",")[0]);
                     Float lng = Float.parseFloat(loc.split(",")[1]);
 
-                    LatLng l = new LatLng(lat, lng);
+                    String[] desc = placemark.getProperty("description").split(",");
 
-                    waypoints.add(l);
+                    WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4]);
 
-                    MarkerOptions m = new MarkerOptions().position(l).title(placemark.getProperty("name"));
+                    waypoints.add(w);
+
+                    MarkerOptions m = new MarkerOptions().position(w.location).title(w.title).snippet(w.description);
                     mMap.addMarker(m);
                 }
             }
         }
+
+        Collections.sort(waypoints, new Comparator<WayPoint>() {
+            @Override
+            public int compare(WayPoint lhs, WayPoint rhs) {
+                if(lhs.index < rhs.index){
+                    return -1;
+                } else {
+                    return 1;
+                }
+
+            }
+        });
     }
 
 }
