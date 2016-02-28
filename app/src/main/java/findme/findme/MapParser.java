@@ -31,10 +31,8 @@ public class MapParser {
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
 
         for(KmlContainer container : layer.getContainers()){
-//            Log.d("Container", " "+container.getProperty("name"));
             for(KmlContainer c : container.getContainers()){
                 for(KmlPlacemark placemark : c.getPlacemarks()){
-                    //KmlGeometry geom = placemark.getGeometry();
 
                     String geomS = placemark.getGeometry().getGeometryObject().toString();
                     String loc = geomS.substring(geomS.indexOf("(") + 1, geomS.indexOf(")"));
