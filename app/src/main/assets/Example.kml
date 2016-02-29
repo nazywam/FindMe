@@ -7,7 +7,7 @@
 			<name>Warstwa bez nazwy</name>
 			<Placemark>
 				<name>Dworzec</name>
-				<description><![CDATA[TakiSobie, 1, point1.jpg, 123321, icon.png]]></description>
+				<description><![CDATA[TakiSobie, 1, point1.jpg, 123321, modern1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9276276,50.6625812,0.0</coordinates>
@@ -15,7 +15,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Pierożek</name>
-				<description><![CDATA[Powiedzmy, 2, point2.jpg, 1231, icon.png]]></description>
+				<description><![CDATA[Powiedzmy, 2, point2.jpg, 1231, modern2.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9276491,50.6637986,0.0</coordinates>
@@ -23,7 +23,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Elektryk</name>
-				<description><![CDATA[Ahaa, 3, point3.jpg, 3213, icon.png]]></description>
+				<description><![CDATA[Ahaa, 3, point3.jpg, 3213, modern3.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9329169,50.6664065,0.0</coordinates>
@@ -31,7 +31,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Sklepik</name>
-				<description><![CDATA[HahaNoNie, 4, point5.jpg, 9821, icon.png]]></description>
+				<description><![CDATA[HahaNoNie, 4, point5.jpg, 9821, modern4.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9322946,50.6682629,0.0</coordinates>
@@ -39,7 +39,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Kóściółek</name>
-				<description><![CDATA[WIQEWQASD, 5, point5.jpg, 666, icon.png]]></description>
+				<description><![CDATA[WIQEWQASD, 5, point5.jpg, 666, church1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9303205,50.67132620000001,0.0</coordinates>
@@ -47,7 +47,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Szkoła</name>
-				<description><![CDATA[No nieeeee, 6, point6.jpg, 666, icon.png]]></description>
+				<description><![CDATA[No nieeeee, 6, point6.jpg, 666, castle1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9246986,50.6736177,0.0</coordinates>

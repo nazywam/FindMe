@@ -1,8 +1,13 @@
 package findme.findme;
 
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -40,8 +45,8 @@ public class MapParser {
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
 
         for(KmlContainer container : layer.getContainers()){
-            for(KmlContainer c : container.getContainers()){
-                for(KmlPlacemark placemark : c.getPlacemarks()){
+            for(KmlContainer c : container.getContainers()) {
+                for (KmlPlacemark placemark : c.getPlacemarks()) {
 
                     String geomS = placemark.getGeometry().getGeometryObject().toString();
                     String loc = geomS.substring(geomS.indexOf("(") + 1, geomS.indexOf(")"));
@@ -55,7 +60,20 @@ public class MapParser {
 
                     waypoints.add(w);
 
-                    MarkerOptions m = new MarkerOptions().position(w.location).title(w.title).snippet(w.description);
+                    AssetManager am = context.getAssets();
+                    InputStream is = null;
+                    try {
+                        is = am.open("icons/"+w.iconPath.trim());
+                    } catch (IOException e) {
+                        Log.d("Loading", "icons/"+w.iconPath.trim());
+                        e.printStackTrace();
+                    }
+
+                    Bitmap icon = BitmapFactory.decodeStream(is);
+                    Bitmap scaled = Bitmap.createScaledBitmap(icon, 96, 96, false);
+
+
+                    MarkerOptions m = new MarkerOptions().position(w.location).title(w.title).snippet(w.description).icon(BitmapDescriptorFactory.fromBitmap(scaled));
                     mMap.addMarker(m);
                 }
             }
