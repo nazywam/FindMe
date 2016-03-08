@@ -28,11 +28,15 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, RoutingListener {
 
     private GoogleMap mMap;
     private int currentWaypoint;
     private MapParser mapParser;
+    private Boolean localisationInitialized;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +50,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Log.d("ASDSADSADSA", "ASDSADSA");
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        if(requestCode == 0){ //TODO do it the right way
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED || grantResults[1] == PackageManager.PERMISSION_GRANTED){
+                localisationInitialized = true;
+            } else {
+                Log.d("APPLICATION", "User refused to grant access to localisation");
+            }
+        }
+    }
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
+
+        localisationInitialized = false;
+        if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, 0);
+            Log.d("APPLICATION", "Localisation not enabled!, trying to get permission");
+        } else {
+            localisationInitialized = true;
         }
-        mMap.setMyLocationEnabled(true);
+
+        if(localisationInitialized){
+            mMap.setMyLocationEnabled(true);
+        }
+
 
         LatLng startPosition = new LatLng(50.67044, 17.92458);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(startPosition));
@@ -62,16 +87,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location arg0) {
-                updatePath(new LatLng(arg0.getLatitude(), arg0.getLongitude()));
+                if(localisationInitialized){
+                    updatePath(new LatLng(arg0.getLatitude(), arg0.getLongitude()));
+                }
             }
         });
-
         try {
              mapParser = new MapParser(mMap, getApplicationContext());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
             e.printStackTrace();
+
         }
     }
 
@@ -90,7 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         float[] result = new float[1];
         Location.distanceBetween(myPos.latitude, myPos.longitude, mapParser.waypoints.get(currentWaypoint).location.latitude, mapParser.waypoints.get(currentWaypoint).location.longitude, result);
 
-        if(result[0] < 10){
+        if(result[0] < 50){
             currentWaypoint++;
         }
     }
