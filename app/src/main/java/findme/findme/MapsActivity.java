@@ -2,19 +2,15 @@ package findme.findme;
 
 import android.Manifest;
 import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.text.method.Touch;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.directions.route.AbstractRouting;
 import com.directions.route.Route;
 import com.directions.route.RouteException;
 import com.directions.route.Routing;
@@ -23,10 +19,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -37,7 +31,7 @@ import java.util.ArrayList;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-public class MapsActivity extends FragmentActivity
+public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback, RoutingListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
@@ -58,7 +52,8 @@ public class MapsActivity extends FragmentActivity
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Log.d("ASDSADSADSA", "ASDSADSA");
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
     }
 
     @Override
@@ -154,8 +149,8 @@ public class MapsActivity extends FragmentActivity
         getSupportFragmentManager()
                 .beginTransaction()
                         .add(R.id.layout_maps_activity, buildingInfoFragment)
-                        .addToBackStack(null)
-                        .commit();
+                .addToBackStack(null)
+                .commit();
         return false;
     }
 }
