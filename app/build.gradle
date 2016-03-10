@@ -20,11 +20,12 @@ android {
 }
 
 dependencies {
-    compile 'com.google.maps.android:android-maps-utils:0.4.2'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+
+    compile 'com.google.maps.android:android-maps-utils:0.4.2'
+    compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.github.jd-alexander:library:1.1.0'
-
+    compile 'com.android.support:support-v4:23.2.0'
 }

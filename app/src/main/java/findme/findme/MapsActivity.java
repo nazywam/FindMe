@@ -1,6 +1,8 @@
 package findme.findme;
 
 import android.Manifest;
+import android.app.ActionBar;
+import android.app.Fragment;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
@@ -8,6 +10,9 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.text.method.Touch;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.directions.route.AbstractRouting;
 import com.directions.route.Route;
@@ -20,6 +25,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
@@ -31,7 +37,8 @@ import java.util.ArrayList;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, RoutingListener {
+public class MapsActivity extends FragmentActivity
+        implements OnMapReadyCallback, RoutingListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     private int currentWaypoint;
@@ -100,6 +107,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
 
         }
+
+        mMap.setOnMarkerClickListener(this);
     }
 
     void updatePath(LatLng myPos){
@@ -136,5 +145,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for(Route r : route){
             mMap.addPolyline(new PolylineOptions().addAll(r.getPoints()).color(0xFF00FF00));
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        BuildingInfoFragment buildingInfoFragment =
+                BuildingInfoFragment.newInstance(marker.getTitle(), marker.getId());
+        getSupportFragmentManager()
+                .beginTransaction()
+                        .add(R.id.layout_maps_activity, buildingInfoFragment)
+                        .addToBackStack(null)
+                        .commit();
+        return false;
     }
 }
