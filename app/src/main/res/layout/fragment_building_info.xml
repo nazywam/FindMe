@@ -10,10 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/building_info_title"
+        android:text="HeLLo World!!!"
         style="?android:textAppearanceMedium"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="lorem ipsum dolor sit amet :D"
         android:id="@+id/building_info_description"/>
 
 </LinearLayout>

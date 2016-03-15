@@ -28,4 +28,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.github.jd-alexander:library:1.1.0'
     compile 'com.android.support:support-v4:23.2.0'
+    compile 'com.sothree.slidinguppanel:library:3.3.0'
 }

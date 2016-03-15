@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.directions.route.Route;
 import com.directions.route.RouteException;
@@ -22,6 +23,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -32,12 +35,14 @@ import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class MapsActivity extends AppCompatActivity
-        implements OnMapReadyCallback, RoutingListener, GoogleMap.OnMarkerClickListener {
+        implements OnMapReadyCallback, RoutingListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
 
     private GoogleMap mMap;
     private int currentWaypoint;
     private MapParser mapParser;
     private Boolean localisationInitialized;
+
+    private SlidingUpPanelLayout mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +57,12 @@ public class MapsActivity extends AppCompatActivity
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        mLayout = (SlidingUpPanelLayout) findViewById(R.id.layout_maps_activity);
+        mLayout.setPanelState(PanelState.HIDDEN);
+        mLayout.setAnchorPoint(0.8f);
+
+        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);*/
     }
 
     @Override
@@ -104,6 +113,7 @@ public class MapsActivity extends AppCompatActivity
         }
 
         mMap.setOnMarkerClickListener(this);
+        mMap.setOnMapClickListener(this);
     }
 
     void updatePath(LatLng myPos){
@@ -144,13 +154,28 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        BuildingInfoFragment buildingInfoFragment =
-                BuildingInfoFragment.newInstance(marker.getTitle(), marker.getId());
-        getSupportFragmentManager()
-                .beginTransaction()
-                        .add(R.id.layout_maps_activity, buildingInfoFragment)
-                .addToBackStack(null)
-                .commit();
+        ((TextView)mLayout.findViewById(R.id.building_info_title)).setText(marker.getTitle());
+        mLayout.setPanelState(PanelState.COLLAPSED);
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mLayout != null &&
+                (mLayout.getPanelState() == PanelState.EXPANDED ||
+                        mLayout.getPanelState() == PanelState.ANCHORED ||
+                        mLayout.getPanelState() == PanelState.COLLAPSED)) {
+            mLayout.setPanelState(PanelState.HIDDEN);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        if (mLayout.getPanelState() == PanelState.EXPANDED ||
+                        mLayout.getPanelState() == PanelState.ANCHORED ||
+                        mLayout.getPanelState() == PanelState.COLLAPSED)
+            mLayout.setPanelState(PanelState.HIDDEN);
     }
 }
