@@ -58,7 +58,6 @@ public class MapsActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
 
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.layout_maps_activity);
-        mLayout.setPanelState(PanelState.HIDDEN);
         mLayout.setAnchorPoint(0.8f);
 
         /*Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);

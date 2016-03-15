@@ -8,6 +8,8 @@
     sothree:umanoPanelHeight="68dp"
     sothree:umanoShadowHeight="4dp"
     sothree:umanoParallaxOffset="130dp"
+    sothree:umanoInitialState="hidden"
+    sothree:umanoOverlay="true"
     sothree:umanoFadeColor="@android:color/transparent">
 <!--
     <android.support.v7.widget.Toolbar
@@ -31,6 +33,7 @@
         android:name="findme.findme.BuildingInfoFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/building_info_fragment"/>
+        android:id="@+id/building_info_fragment"
+        />
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 

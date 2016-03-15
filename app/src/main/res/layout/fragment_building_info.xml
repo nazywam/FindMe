@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_weight="2"
     tools:context="findme.findme.BuildingInfoFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@android:color/background_light">
 
     <TextView
         android:layout_width="match_parent"
