@@ -92,8 +92,9 @@ public class MapsActivity extends AppCompatActivity
 
 
         LatLng startPosition = new LatLng(50.67044, 17.92458);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(startPosition));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(17.0f));
+        //do it all in *one* update
+        //see: http://stackoverflow.com/questions/29400463/googlemap-cameraupdate-moves-to-wrong-coordinates
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17.0f));
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location arg0) {
