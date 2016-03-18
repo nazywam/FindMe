@@ -3,13 +3,16 @@ package findme.findme;
 import android.Manifest;
 import android.app.ActionBar;
 import android.content.pm.PackageManager;
+import android.graphics.Point;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.directions.route.Route;
@@ -35,12 +38,16 @@ import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class MapsActivity extends AppCompatActivity
-        implements OnMapReadyCallback, RoutingListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
+        implements OnMapReadyCallback, RoutingListener, GoogleMap.OnMarkerClickListener,
+        GoogleMap.OnMapClickListener, SlidingUpPanelLayout.PanelSlideListener {
+
+    private static final int MAP_HEIGHT_DP = 200;
 
     private GoogleMap mMap;
     private int currentWaypoint;
     private MapParser mapParser;
     private Boolean localisationInitialized;
+    private Marker currentMarker;
 
     private SlidingUpPanelLayout mLayout;
 
@@ -58,7 +65,10 @@ public class MapsActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
 
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.layout_maps_activity);
-        mLayout.setAnchorPoint(0.8f);
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        float heightdp = Math.round(displayMetrics.heightPixels / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        mLayout.setAnchorPoint((heightdp - MAP_HEIGHT_DP) / heightdp);
+        mLayout.addPanelSlideListener(this);
 
         /*Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);*/
@@ -156,6 +166,7 @@ public class MapsActivity extends AppCompatActivity
     public boolean onMarkerClick(Marker marker) {
         ((TextView)mLayout.findViewById(R.id.building_info_title)).setText(marker.getTitle());
         mLayout.setPanelState(PanelState.COLLAPSED);
+        currentMarker = marker;
         return false;
     }
 
@@ -177,5 +188,29 @@ public class MapsActivity extends AppCompatActivity
                         mLayout.getPanelState() == PanelState.ANCHORED ||
                         mLayout.getPanelState() == PanelState.COLLAPSED)
             mLayout.setPanelState(PanelState.HIDDEN);
+    }
+
+    @Override
+    public void onPanelSlide(View panel, float slideOffset) {
+    }
+
+    @Override
+    public void onPanelStateChanged(View panel, PanelState previousState, PanelState newState) {
+        if(newState == PanelState.ANCHORED) {
+            LatLng latLng = currentMarker.getPosition();
+            Point p = mMap.getProjection().toScreenLocation(latLng);
+            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            int px = Math.round(MAP_HEIGHT_DP * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+            p.y += findViewById(R.id.map).getHeight() / 2 - px/2 - 40;
+            latLng = mMap.getProjection().fromScreenLocation(p);
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng), 500, null);
+        }
+        else if((previousState == PanelState.ANCHORED || previousState == PanelState.EXPANDED || previousState == PanelState.DRAGGING) &&
+                newState == PanelState.COLLAPSED && currentMarker != null) {
+            LatLng latLng = currentMarker.getPosition();
+            Point p = mMap.getProjection().toScreenLocation(latLng);
+            latLng = mMap.getProjection().fromScreenLocation(p);
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng), 500, null);
+        }
     }
 }
