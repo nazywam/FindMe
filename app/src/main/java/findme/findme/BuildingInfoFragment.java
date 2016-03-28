@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class BuildingInfoFragment extends Fragment {
     private static final String ARG_TITLE = "title", ARG_DESCRIPTION = "description";
+    private View view;
 
     public BuildingInfoFragment() {
         // Required empty public constructor
@@ -26,11 +27,19 @@ public class BuildingInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_building_info, container, false);
+        view = inflater.inflate(R.layout.fragment_building_info, container, false);
         if(getArguments() != null) {
             ((TextView)view.findViewById(R.id.building_info_title)).setText(getArguments().getString(ARG_TITLE));
             ((TextView)view.findViewById(R.id.building_info_description)).setText(getArguments().getString(ARG_DESCRIPTION));
         }
         return view;
+    }
+
+    public void setTitle(String title) {
+        ((TextView)view.findViewById(R.id.building_info_title)).setText(title);
+    }
+
+    public void setDescription(String description) {
+        ((TextView)view.findViewById(R.id.building_info_description)).setText(description);
     }
 }

@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
@@ -48,6 +49,7 @@ public class MapsActivity extends AppCompatActivity
     private MapParser mapParser;
     private Boolean localisationInitialized;
     private Marker currentMarker;
+    private BuildingInfoFragment buildingInfoFragment;
 
     private SlidingUpPanelLayout mLayout;
 
@@ -69,6 +71,8 @@ public class MapsActivity extends AppCompatActivity
         float heightdp = Math.round(displayMetrics.heightPixels / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         mLayout.setAnchorPoint((heightdp - MAP_HEIGHT_DP) / heightdp);
         mLayout.addPanelSlideListener(this);
+
+        buildingInfoFragment = (BuildingInfoFragment) getSupportFragmentManager().findFragmentById(R.id.building_info_fragment);
 
         /*Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);*/
@@ -164,7 +168,8 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        ((TextView)mLayout.findViewById(R.id.building_info_title)).setText(marker.getTitle());
+        buildingInfoFragment.setTitle(marker.getTitle());
+        buildingInfoFragment.setDescription("jakiś opis trollololo");
         mLayout.setPanelState(PanelState.COLLAPSED);
         currentMarker = marker;
         return false;
@@ -206,7 +211,7 @@ public class MapsActivity extends AppCompatActivity
             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng), 500, null);
         }
         else if((previousState == PanelState.ANCHORED || previousState == PanelState.EXPANDED || previousState == PanelState.DRAGGING) &&
-                newState == PanelState.COLLAPSED && currentMarker != null) {
+                (newState == PanelState.COLLAPSED || newState == PanelState.HIDDEN) && currentMarker != null) {
             LatLng latLng = currentMarker.getPosition();
             Point p = mMap.getProjection().toScreenLocation(latLng);
             latLng = mMap.getProjection().fromScreenLocation(p);
