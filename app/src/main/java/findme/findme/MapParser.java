@@ -44,6 +44,7 @@ public class MapParser {
         InputStream iStream = context.getAssets().open("Example.kml");
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
 
+
         for(KmlContainer container : layer.getContainers()){
             for(KmlContainer c : container.getContainers()) {
                 for (KmlPlacemark placemark : c.getPlacemarks()) {
@@ -56,25 +57,42 @@ public class MapParser {
 
                     String[] desc = placemark.getProperty("description").split(",");
 
-                    WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4]);
 
-                    waypoints.add(w);
+                    String name = placemark.getProperty("name");
+                    String description = desc[0];
+                    String descriptionImagePath = desc[2].trim();
+                    String iconPath = desc[3].trim();
+
+                    Log.d("Debug", iconPath);
 
                     AssetManager am = context.getAssets();
                     InputStream is = null;
                     try {
-                        is = am.open("icons/"+w.iconPath.trim());
+                        is = am.open("icons/"+iconPath);
                     } catch (IOException e) {
-                        Log.d("Loading", "icons/"+w.iconPath.trim());
+                        Log.d("Loading", "icons/"+iconPath);
                         e.printStackTrace();
                     }
 
                     Bitmap icon = BitmapFactory.decodeStream(is);
                     Bitmap scaled = Bitmap.createScaledBitmap(icon, 96, 96, false);
 
-
-                    MarkerOptions m = new MarkerOptions().position(w.location).title(w.title).snippet(w.description).icon(BitmapDescriptorFactory.fromBitmap(scaled));
+                    MarkerOptions m = new MarkerOptions().position(new LatLng(lat, lng));
+                    m.title(name);
+                    m.snippet(description);
+                    m.icon(BitmapDescriptorFactory.fromBitmap(scaled));
                     mMap.addMarker(m);
+
+
+                    switch (placemark.getStyleId()){
+                        case "#icon-503-DB4436":
+                            WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3]);
+                            waypoints.add(w);
+                            break;
+                        case "#icon-960-4186F0":
+                            Riddle r = new Riddle(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4], desc[5], desc[6], Integer.parseInt(desc[7].trim()));
+                            break;
+                    }
                 }
             }
         }

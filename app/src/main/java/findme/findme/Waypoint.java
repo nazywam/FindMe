@@ -2,24 +2,22 @@ package findme.findme;
 
 import com.google.android.gms.maps.model.LatLng;
 
-class WayPoint {
+public class WayPoint {
 
     LatLng location;
     String title;
     String description;
     int index;
     String iconPath;
-    String beaconId;
     String descriptionImagePath;
 
-    public WayPoint(LatLng loc, String t, String d, int i, String dIP, String bId, String iP){
+    public WayPoint(LatLng loc, String _title, String _description, int _index, String _descriptionImagePath, String _iconPath){
         location = loc;
-        title = t;
-        description = d;
-        index = i;
-        iconPath = iP;
-        beaconId = bId;
-        descriptionImagePath = dIP;
+        title = _title;
+        description = _description;
+        index = _index;
+        descriptionImagePath = _descriptionImagePath;
+        iconPath = _iconPath;
     }
 
 

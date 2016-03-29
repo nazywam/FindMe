@@ -7,39 +7,31 @@
 			<name>Warstwa bez nazwy</name>
 			<Placemark>
 				<name>Dworzec</name>
-				<description><![CDATA[TakiSobie, 1, point1.jpg, 123321, modern1.png]]></description>
+				<description><![CDATA[TakiSobie, 1, point1.jpg, modern1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9276276,50.6625812,0.0</coordinates>
+					<coordinates>17.9273084,50.6627495,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
 				<name>Pierożek</name>
-				<description><![CDATA[Powiedzmy, 2, point2.jpg, 1231, modern2.png]]></description>
+				<description><![CDATA[Powiedzmy, 2, point2.jpg, modern2.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9276491,50.6637986,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Elektryk</name>
-				<description><![CDATA[Ahaa, 3, point3.jpg, 3213, modern3.png]]></description>
-				<styleUrl>#icon-503-DB4436</styleUrl>
-				<Point>
-					<coordinates>17.9329169,50.6664065,0.0</coordinates>
+					<coordinates>17.9276759,50.6636099,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
 				<name>Sklepik</name>
-				<description><![CDATA[HahaNoNie, 4, point5.jpg, 9821, modern4.png]]></description>
+				<description><![CDATA[HahaNoNie, 4, point5.jpg, modern4.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9322946,50.6682629,0.0</coordinates>
+					<coordinates>17.9322597,50.6680623,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
 				<name>Kóściółek</name>
-				<description><![CDATA[WIQEWQASD, 5, point5.jpg, 666, church1.png]]></description>
+				<description><![CDATA[WIQEWQASD, 5, point5.jpg, church1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9303205,50.67132620000001,0.0</coordinates>
@@ -47,10 +39,26 @@
 			</Placemark>
 			<Placemark>
 				<name>Szkoła</name>
-				<description><![CDATA[No nieeeee, 6, point6.jpg, 666, castle1.png]]></description>
+				<description><![CDATA[No nieeeee, 6, point6.jpg, castle1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>17.9246986,50.6736177,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Zagadka 1</name>
+				<description><![CDATA[Ile drzew ma drzewo?, 0, point2.jpg, quiz_icon.png, 100, 200, 300, 1]]></description>
+				<styleUrl>#icon-960-4186F0</styleUrl>
+				<Point>
+					<coordinates>17.9285288,50.6677155,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Zagadka 2</name>
+				<description><![CDATA[Coś tam coś tam?, 0, point2.jpg, quiz_icon.png, tak, nie,może, 2]]></description>
+				<styleUrl>#icon-960-4186F0</styleUrl>
+				<Point>
+					<coordinates>17.9270267,50.6705851,0.0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
@@ -90,6 +98,40 @@
 			<Pair>
 				<key>highlight</key>
 				<styleUrl>#icon-503-DB4436-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-960-4186F0-normal'>
+			<IconStyle>
+				<color>ffF08641</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/960-wht-star-blank.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-960-4186F0-highlight'>
+			<IconStyle>
+				<color>ffF08641</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/960-wht-star-blank.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-960-4186F0'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-960-4186F0-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-960-4186F0-highlight</styleUrl>
 			</Pair>
 		</StyleMap>
 	</Document>
