@@ -30,16 +30,15 @@ import android.content.Context;
 
 import org.xmlpull.v1.XmlPullParserException;
 
-/**
- * Created by Michał on 2016-02-27.
- */
 public class MapParser {
 
     public ArrayList<WayPoint> waypoints;
+    public ArrayList<Riddle> riddles;
 
     public MapParser(GoogleMap mMap, Context context) throws IOException, XmlPullParserException {
 
         waypoints = new ArrayList<WayPoint>();
+        riddles = new ArrayList<Riddle>();
 
         InputStream iStream = context.getAssets().open("Example.kml");
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
@@ -87,10 +86,13 @@ public class MapParser {
                     switch (placemark.getStyleId()){
                         case "#icon-503-DB4436":
                             WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3]);
+                            w.marker = m;
                             waypoints.add(w);
                             break;
                         case "#icon-960-4186F0":
                             Riddle r = new Riddle(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4], desc[5], desc[6], Integer.parseInt(desc[7].trim()));
+                            r.marker = m;
+                            riddles.add(r);
                             break;
                     }
                 }

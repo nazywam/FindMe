@@ -4,11 +4,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
-/**
- * Created by Michał on 2016-03-29.
- */
-
-
 public class Riddle extends WayPoint {
 
     ArrayList<String> answers;
