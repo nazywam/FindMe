@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/line</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    
+    <style name="Button">
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <!--TODO: change the color of this fucking blue divider - it's hardcoded somewhere! Also test it
+    on devices with other themes set. Or make out own custom dialog. -->
+    <style name="AlertDialogCustom" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
 </resources>

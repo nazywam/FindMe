@@ -80,18 +80,18 @@ public class MapParser {
                     m.title(name);
                     m.snippet(description);
                     m.icon(BitmapDescriptorFactory.fromBitmap(scaled));
-                    mMap.addMarker(m);
+                    Marker marker = mMap.addMarker(m);
 
 
                     switch (placemark.getStyleId()){
                         case "#icon-503-DB4436":
                             WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3]);
-                            w.marker = m;
+                            w.marker = marker;
                             waypoints.add(w);
                             break;
                         case "#icon-960-4186F0":
                             Riddle r = new Riddle(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4], desc[5], desc[6], Integer.parseInt(desc[7].trim()));
-                            r.marker = m;
+                            r.marker = marker;
                             riddles.add(r);
                             break;
                     }
@@ -110,6 +110,26 @@ public class MapParser {
 
             }
         });
+    }
+
+    public WayPoint findWaypoint(Marker m) {
+        Log.d("EEEJ", "find waypoint: " + m.toString());
+        for(WayPoint w : waypoints) {
+            Log.d("EEEJ", w.location.toString());
+            if (w.marker.equals(m))
+                return w;
+        }
+        return null;
+    }
+
+    public Riddle findRiddle(Marker m) {
+        Log.d("EEEJ", "find riddle: " + m.toString());
+        for(Riddle r : riddles) {
+            Log.d("EEEJ", r.location.toString());
+            if (r.marker.equals(m))
+                return r;
+        }
+        return null;
     }
 
 }

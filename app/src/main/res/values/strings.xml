@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">FindMe</string>
     <string name="title_activity_maps">Map</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wrong_answer_message">Sorry, it was wrong answer ;(</string>
+    <string name="wrong_answer_title">Wrong answer</string>
+    <string name="good_answer_message">Congrats! Good answer :)</string>
+    <string name="good_answer_title">Good answer</string>
 </resources>

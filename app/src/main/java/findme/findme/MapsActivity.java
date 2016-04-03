@@ -168,8 +168,22 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        buildingInfoFragment.setTitle(marker.getTitle());
-        buildingInfoFragment.setDescription("jakiś opis trollololo");
+        WayPoint w = mapParser.findWaypoint(marker);
+        if(w != null) {
+            buildingInfoFragment.setType(BuildingInfoFragment.InfoType.WAYPOINT);
+            buildingInfoFragment.setTitle(w.title);
+            buildingInfoFragment.setDescription(w.description);
+            buildingInfoFragment.setImage(w.descriptionImagePath);
+        }
+        else {
+            Riddle r = mapParser.findRiddle(marker);
+            buildingInfoFragment.setType(BuildingInfoFragment.InfoType.RIDDLE);
+            buildingInfoFragment.setTitle(r.title);
+            buildingInfoFragment.setDescription(r.description);
+            buildingInfoFragment.setImage(r.descriptionImagePath);
+            buildingInfoFragment.setRiddleAnswers(r.answers);
+            buildingInfoFragment.setCorrectAnswer(r.correctAnswer);
+        }
         mLayout.setPanelState(PanelState.COLLAPSED);
         currentMarker = marker;
         return false;
@@ -217,5 +231,12 @@ public class MapsActivity extends AppCompatActivity
             latLng = mMap.getProjection().fromScreenLocation(p);
             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng), 500, null);
         }
+    }
+
+    /**
+     * Called when user selects good answer. The corresponding marker is currentMarker.
+     */
+    public void goodAnswerSelected() {
+
     }
 }

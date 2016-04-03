@@ -14,15 +14,10 @@
         android:id="@+id/building_info_title"
         android:textSize="34sp"/>
     <ImageView
+        style="@style/Divider"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/line"
-        android:scaleType="fitXY"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/building_info_description"
-        android:textSize="14sp"
-        android:lineSpacingExtra="4sp"/>
-
+        android:layout_height="match_parent"
+        android:id="@+id/info_area_layout"
+        android:orientation="horizontal" />
 </LinearLayout>
