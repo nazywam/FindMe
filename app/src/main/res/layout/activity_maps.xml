@@ -10,6 +10,7 @@
     sothree:umanoParallaxOffset="0dp"
     sothree:umanoInitialState="hidden"
     sothree:umanoOverlay="true"
+    sothree:umanoScrollableView="@+id/scroll_view"
     sothree:umanoFadeColor="@android:color/transparent">
 <!--
     <android.support.v7.widget.Toolbar

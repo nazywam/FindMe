@@ -10,6 +10,15 @@
         android:textSize="14sp"
         android:lineSpacingExtra="4sp"
         android:id="@+id/description"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/building_picture"
+        android:adjustViewBounds="true"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

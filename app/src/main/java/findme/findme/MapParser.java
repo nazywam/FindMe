@@ -113,9 +113,7 @@ public class MapParser {
     }
 
     public WayPoint findWaypoint(Marker m) {
-        Log.d("EEEJ", "find waypoint: " + m.toString());
         for(WayPoint w : waypoints) {
-            Log.d("EEEJ", w.location.toString());
             if (w.marker.equals(m))
                 return w;
         }
@@ -123,9 +121,7 @@ public class MapParser {
     }
 
     public Riddle findRiddle(Marker m) {
-        Log.d("EEEJ", "find riddle: " + m.toString());
         for(Riddle r : riddles) {
-            Log.d("EEEJ", r.location.toString());
             if (r.marker.equals(m))
                 return r;
         }
