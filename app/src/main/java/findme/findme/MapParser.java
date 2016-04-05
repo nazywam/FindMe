@@ -56,7 +56,6 @@ public class MapParser {
 
                     String[] desc = placemark.getProperty("description").split(",");
 
-
                     String name = placemark.getProperty("name");
                     String description = desc[0];
                     String descriptionImagePath = desc[2].trim();
@@ -102,12 +101,11 @@ public class MapParser {
         Collections.sort(waypoints, new Comparator<WayPoint>() {
             @Override
             public int compare(WayPoint lhs, WayPoint rhs) {
-                if(lhs.index < rhs.index){
-                    return -1;
-                } else {
-                    return 1;
-                }
-
+            if(lhs.index < rhs.index){
+                return -1;
+            } else {
+                return 1;
+            }
             }
         });
     }

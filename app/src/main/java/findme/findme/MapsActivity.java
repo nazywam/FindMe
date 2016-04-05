@@ -26,6 +26,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState;
@@ -34,6 +35,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -43,9 +45,14 @@ public class MapsActivity extends AppCompatActivity
         GoogleMap.OnMapClickListener, SlidingUpPanelLayout.PanelSlideListener {
 
     private static final int MAP_HEIGHT_DP = 200;
+    private static final int MAX_DISTANCE_TO_WAYPOINT = 50;
+    private static final int COMPLETED_PATH_COLOR = 0xFF60E334;
+    private static final int REMAINING_PATH_COLOR = 0xFFFFE74A;
 
     private GoogleMap mMap;
     private int currentWaypoint;
+    private Polyline remainingPath;
+    private Polyline completedPath;
     private MapParser mapParser;
     private Boolean localisationInitialized;
     private Marker currentMarker;
@@ -80,7 +87,7 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
-        if(requestCode == 0){ //TODO do it the right way
+        if(requestCode == 0){ //TODO proper request window
             if(grantResults[0] == PackageManager.PERMISSION_GRANTED || grantResults[1] == PackageManager.PERMISSION_GRANTED){
                 localisationInitialized = true;
             } else {
@@ -92,6 +99,7 @@ public class MapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         localisationInitialized = false;
         if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, 0);
@@ -102,29 +110,34 @@ public class MapsActivity extends AppCompatActivity
 
         if(localisationInitialized){
             mMap.setMyLocationEnabled(true);
+
+            remainingPath = mMap.addPolyline(new PolylineOptions().color(REMAINING_PATH_COLOR));
+            completedPath = mMap.addPolyline(new PolylineOptions().color(COMPLETED_PATH_COLOR));
         }
 
+        try {
+            mapParser = new MapParser(mMap, getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
 
-        LatLng startPosition = new LatLng(50.67044, 17.92458);
-        //do it all in *one* update
-        //see: http://stackoverflow.com/questions/29400463/googlemap-cameraupdate-moves-to-wrong-coordinates
+        LatLng startPosition = mapParser.waypoints.get(0).location;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17.0f));
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location arg0) {
                 if(localisationInitialized){
                     updatePath(new LatLng(arg0.getLatitude(), arg0.getLongitude()));
+
+                    List<LatLng> points = completedPath.getPoints();
+                    points.add(new LatLng(arg0.getLatitude(), arg0.getLongitude()));
+                    completedPath.setPoints(points);
                 }
             }
         });
-        try {
-             mapParser = new MapParser(mMap, getApplicationContext());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
 
-        }
 
         mMap.setOnMarkerClickListener(this);
         mMap.setOnMapClickListener(this);
@@ -145,7 +158,7 @@ public class MapsActivity extends AppCompatActivity
         float[] result = new float[1];
         Location.distanceBetween(myPos.latitude, myPos.longitude, mapParser.waypoints.get(currentWaypoint).location.latitude, mapParser.waypoints.get(currentWaypoint).location.longitude, result);
 
-        if(result[0] < 50){
+        if(result[0] < MAX_DISTANCE_TO_WAYPOINT){
             currentWaypoint++;
         }
     }
@@ -161,11 +174,8 @@ public class MapsActivity extends AppCompatActivity
     }
     @Override
     public void onRoutingSuccess(ArrayList<Route> route, int shortestRouteIndex) {
-        for(Route r : route){
-            mMap.addPolyline(new PolylineOptions().addAll(r.getPoints()).color(0xFF00FF00));
-        }
+        remainingPath.setPoints(route.get(0).getPoints());
     }
-
     @Override
     public boolean onMarkerClick(Marker marker) {
         WayPoint w = mapParser.findWaypoint(marker);
