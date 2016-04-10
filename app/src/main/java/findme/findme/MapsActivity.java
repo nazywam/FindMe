@@ -1,6 +1,7 @@
 package findme.findme;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.location.Location;
@@ -143,7 +144,7 @@ public class MapsActivity extends AppCompatActivity
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location arg0) {
-                if(localisationInitialized){
+                if (localisationInitialized) {
                     updatePath(new LatLng(arg0.getLatitude(), arg0.getLongitude()));
 
                     List<LatLng> points = completedPath.getPoints();
@@ -172,9 +173,10 @@ public class MapsActivity extends AppCompatActivity
     void checkWaypointCompletion(LatLng myPos){
         float[] result = new float[1];
         Location.distanceBetween(myPos.latitude, myPos.longitude, mapParser.waypoints.get(currentWaypoint).location.latitude, mapParser.waypoints.get(currentWaypoint).location.longitude, result);
-
+        
         if(result[0] < MAX_DISTANCE_TO_WAYPOINT){
             currentWaypoint++;
+            showWaypointCompletionDialog();
         }
     }
 
@@ -263,5 +265,12 @@ public class MapsActivity extends AppCompatActivity
      */
     public void goodAnswerSelected() {
 
+    }
+
+    private void showWaypointCompletionDialog() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+        alert.setTitle(R.string.waypoint_completed_title);
+        alert.setMessage(R.string.waypoint_completed_message);
+        alert.show();
     }
 }
