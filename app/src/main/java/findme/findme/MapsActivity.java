@@ -1,20 +1,20 @@
 package findme.findme;
 
 import android.Manifest;
-import android.app.ActionBar;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.directions.route.Route;
 import com.directions.route.RouteException;
@@ -57,6 +57,7 @@ public class MapsActivity extends AppCompatActivity
     private Boolean localisationInitialized;
     private Marker currentMarker;
     private BuildingInfoFragment buildingInfoFragment;
+    private DrawerLayout drawerLayout;
 
     private SlidingUpPanelLayout mLayout;
 
@@ -81,8 +82,22 @@ public class MapsActivity extends AppCompatActivity
 
         buildingInfoFragment = (BuildingInfoFragment) getSupportFragmentManager().findFragmentById(R.id.building_info_fragment);
 
-        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);*/
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        String[] drawerStrings = getResources().getStringArray(R.array.drawer_items);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final ListView drawerList = (ListView) findViewById(R.id.drawer);
+        if(drawerList != null) {
+            drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.draw_list_item, drawerStrings));
+            drawerList.setOnItemClickListener(new ListView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    drawerLayout.closeDrawer(drawerList);
+                    //TODO: add real actions!
+                }
+            });
+        }
     }
 
     @Override

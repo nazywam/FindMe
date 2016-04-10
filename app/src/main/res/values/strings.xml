@@ -5,4 +5,12 @@
     <string name="wrong_answer_title">Wrong answer</string>
     <string name="good_answer_message">Congrats! Good answer :)</string>
     <string name="good_answer_title">Good answer</string>
+    <string-array
+        name="drawer_items">
+        <item>Navigation</item>
+        <item>Status</item>
+        <item>Tutorial</item>
+        <item>About</item>
+    </string-array>
+
 </resources>
