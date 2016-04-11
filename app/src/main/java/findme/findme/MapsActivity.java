@@ -3,15 +3,18 @@ package findme.findme;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -59,6 +62,7 @@ public class MapsActivity extends AppCompatActivity
     private Marker currentMarker;
     private BuildingInfoFragment buildingInfoFragment;
     private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle drawerToggle;
 
     private SlidingUpPanelLayout mLayout;
 
@@ -83,9 +87,12 @@ public class MapsActivity extends AppCompatActivity
 
         buildingInfoFragment = (BuildingInfoFragment) getSupportFragmentManager().findFragmentById(R.id.building_info_fragment);
 
+        setDrawer();
+    }
+
+    private void setDrawer() {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
         String[] drawerStrings = getResources().getStringArray(R.array.drawer_items);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         final ListView drawerList = (ListView) findViewById(R.id.drawer);
@@ -99,6 +106,36 @@ public class MapsActivity extends AppCompatActivity
                 }
             });
         }
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+            }
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
+        drawerLayout.addDrawerListener(drawerToggle);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -173,7 +210,7 @@ public class MapsActivity extends AppCompatActivity
     void checkWaypointCompletion(LatLng myPos){
         float[] result = new float[1];
         Location.distanceBetween(myPos.latitude, myPos.longitude, mapParser.waypoints.get(currentWaypoint).location.latitude, mapParser.waypoints.get(currentWaypoint).location.longitude, result);
-        
+
         if(result[0] < MAX_DISTANCE_TO_WAYPOINT){
             currentWaypoint++;
             showWaypointCompletionDialog();
