@@ -61,8 +61,6 @@ public class MapParser {
                     String descriptionImagePath = desc[2].trim();
                     String iconPath = desc[3].trim();
 
-                    Log.d("Debug", iconPath);
-
                     AssetManager am = context.getAssets();
                     InputStream is = null;
                     try {
@@ -79,18 +77,17 @@ public class MapParser {
                     m.title(name);
                     m.snippet(description);
                     m.icon(BitmapDescriptorFactory.fromBitmap(scaled));
-                    Marker marker = mMap.addMarker(m);
-
+                    //Marker marker = mMap.addMarker(m);
 
                     switch (placemark.getStyleId()){
                         case "#icon-503-DB4436":
                             WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3]);
-                            w.marker = marker;
+                            w.marker = m;
                             waypoints.add(w);
                             break;
                         case "#icon-960-4186F0":
                             Riddle r = new Riddle(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4], desc[5], desc[6], Integer.parseInt(desc[7].trim()));
-                            r.marker = marker;
+                            r.marker = m;
                             riddles.add(r);
                             break;
                     }

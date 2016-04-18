@@ -170,6 +170,7 @@ public class MapsActivity extends AppCompatActivity
 
         try {
             mapParser = new MapParser(mMap, getApplicationContext());
+            mMap.addMarker(mapParser.waypoints.get(0).marker);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
@@ -214,6 +215,9 @@ public class MapsActivity extends AppCompatActivity
         if(result[0] < MAX_DISTANCE_TO_WAYPOINT){
             currentWaypoint++;
             showWaypointCompletionDialog();
+
+            //add new waypint to map
+            mMap.addMarker(mapParser.waypoints.get(currentWaypoint).marker);
         }
     }
 
