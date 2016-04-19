@@ -13,7 +13,8 @@ public class WayPoint {
     String iconPath;
     String descriptionImagePath;
 
-    MarkerOptions marker;
+    Marker marker;
+    MarkerOptions markerOptions;
 
     public WayPoint(LatLng loc, String _title, String _description, int _index, String _descriptionImagePath, String _iconPath){
         location = loc;

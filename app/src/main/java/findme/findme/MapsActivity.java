@@ -170,7 +170,7 @@ public class MapsActivity extends AppCompatActivity
 
         try {
             mapParser = new MapParser(mMap, getApplicationContext());
-            mMap.addMarker(mapParser.waypoints.get(0).marker);
+            mapParser.waypoints.get(0).marker = mMap.addMarker(mapParser.waypoints.get(0).markerOptions);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
@@ -217,7 +217,7 @@ public class MapsActivity extends AppCompatActivity
             showWaypointCompletionDialog();
 
             //add new waypint to map
-            mMap.addMarker(mapParser.waypoints.get(currentWaypoint).marker);
+            mapParser.waypoints.get(currentWaypoint).marker = mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
         }
     }
 

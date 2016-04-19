@@ -82,12 +82,12 @@ public class MapParser {
                     switch (placemark.getStyleId()){
                         case "#icon-503-DB4436":
                             WayPoint w = new WayPoint(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3]);
-                            w.marker = m;
+                            w.markerOptions = m;
                             waypoints.add(w);
                             break;
                         case "#icon-960-4186F0":
                             Riddle r = new Riddle(new LatLng(lat, lng), placemark.getProperty("name"), desc[0], Integer.parseInt(desc[1].trim()), desc[2], desc[3], desc[4], desc[5], desc[6], Integer.parseInt(desc[7].trim()));
-                            r.marker = m;
+                            r.markerOptions = m;
                             riddles.add(r);
                             break;
                     }
@@ -109,7 +109,7 @@ public class MapParser {
 
     public WayPoint findWaypoint(Marker m) {
         for(WayPoint w : waypoints) {
-            if (w.marker.equals(m))
+            if (w.marker != null &&  w.marker.equals(m))
                 return w;
         }
         return null;
