@@ -6,59 +6,43 @@
 		<Folder>
 			<name>Warstwa bez nazwy</name>
 			<Placemark>
-				<name>Dworzec</name>
-				<description><![CDATA[TakiSobie, 1, point1.jpg, modern1.png]]></description>
+				<name>Start</name>
+				<description><![CDATA[Woo!# 5# point5.jpg# church1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
-					<coordinates>17.9273084,50.6627495,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Pierożek</name>
-				<description><![CDATA[Powiedzmy, 2, point2.jpg, modern2.png]]></description>
-				<styleUrl>#icon-503-DB4436</styleUrl>
-				<Point>
-					<coordinates>17.9276759,50.6636099,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Sklepik</name>
-				<description><![CDATA[HahaNoNie, 4, point5.jpg, modern4.png]]></description>
-				<styleUrl>#icon-503-DB4436</styleUrl>
-				<Point>
-					<coordinates>17.9322597,50.6680623,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Kóściółek</name>
-				<description><![CDATA[WIQEWQASD, 5, point5.jpg, church1.png]]></description>
-				<styleUrl>#icon-503-DB4436</styleUrl>
-				<Point>
-					<coordinates>17.9303205,50.67132620000001,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Szkoła</name>
-				<description><![CDATA[No nieeeee, 6, point6.jpg, castle1.png]]></description>
-				<styleUrl>#icon-503-DB4436</styleUrl>
-				<Point>
-					<coordinates>17.9246986,50.6736177,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Zagadka 1</name>
-				<description><![CDATA[Ile drzew ma drzewo?, 0, point2.jpg, quiz_icon.png, 100, 200, 300, 1]]></description>
-				<styleUrl>#icon-960-4186F0</styleUrl>
-				<Point>
-					<coordinates>17.9285288,50.6677155,0.0</coordinates>
+					<coordinates>18.017165,50.4924908,0.0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
 				<name>Zagadka 2</name>
-				<description><![CDATA[Coś tam coś tam?, 0, point2.jpg, quiz_icon.png, tak, nie,może, 2]]></description>
+				<description><![CDATA[Coś tam coś tam?# 0# point2.jpg# quiz_icon.png# tak# nie#może# 2]]></description>
 				<styleUrl>#icon-960-4186F0</styleUrl>
 				<Point>
-					<coordinates>17.9270267,50.6705851,0.0</coordinates>
+					<coordinates>18.0152247,50.4921674,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pizzeria</name>
+				<description><![CDATA[Mniam# 5# point5.jpg# modern1.png]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<Point>
+					<coordinates>18.0163953,50.49209820000001,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Skrzyżowanko</name>
+				<description><![CDATA[Mniam# 5# point5.jpg# modern1.png]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<Point>
+					<coordinates>18.0131578,50.489303,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Znowu cywilizacja!</name>
+				<description><![CDATA[;)#5# point5.jpg# modern1.png]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<Point>
+					<coordinates>18.0091667,50.4921971,0.0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>

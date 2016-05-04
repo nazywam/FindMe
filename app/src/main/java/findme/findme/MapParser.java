@@ -54,7 +54,7 @@ public class MapParser {
                     Float lat = Float.parseFloat(loc.split(",")[0]);
                     Float lng = Float.parseFloat(loc.split(",")[1]);
 
-                    String[] desc = placemark.getProperty("description").split(",");
+                    String[] desc = placemark.getProperty("description").split("#");
 
                     String name = placemark.getProperty("name");
                     String description = desc[0];
