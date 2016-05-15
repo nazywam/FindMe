@@ -9,8 +9,7 @@
     <string name="waypoint_completed_message">Waypoint completed!</string>
     <string name="drawer_open">Drawer opened</string>
     <string name="drawer_close">Drawer closed</string>
-    <string-array
-        name="drawer_items">
+    <string-array name="drawer_items">
         <item>Navigation</item>
         <item>Status</item>
         <item>Tutorial</item>
