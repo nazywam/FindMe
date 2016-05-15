@@ -173,8 +173,16 @@ public class MapsActivity extends AppCompatActivity
 
         try {
             mapParser = new MapParser(mMap, getApplicationContext());
+            /*
+            unlocked all waypoints
+             */
+            for(WayPoint w : mapParser.waypoints) {
+                w.marker = mMap.addMarker(w.markerOptions);
+            }
+            /*
             mapParser.waypoints.get(currentWaypoint).marker =
                     mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
+                    */
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
