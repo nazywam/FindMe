@@ -2,6 +2,8 @@ package findme.findme;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Point;
@@ -70,7 +72,8 @@ public class MapsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        currentWaypoint = 0;
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        currentWaypoint = sharedPreferences.getInt("currentWaypoint", 0);
         mapParser = null;
 
         setContentView(R.layout.activity_maps);
@@ -170,14 +173,15 @@ public class MapsActivity extends AppCompatActivity
 
         try {
             mapParser = new MapParser(mMap, getApplicationContext());
-            mapParser.waypoints.get(0).marker = mMap.addMarker(mapParser.waypoints.get(0).markerOptions);
+            mapParser.waypoints.get(currentWaypoint).marker =
+                    mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         }
 
-        LatLng startPosition = mapParser.waypoints.get(0).location;
+        LatLng startPosition = mapParser.waypoints.get(currentWaypoint).location;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17.0f));
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
@@ -217,7 +221,8 @@ public class MapsActivity extends AppCompatActivity
             showWaypointCompletionDialog();
 
             //add new waypint to map
-            mapParser.waypoints.get(currentWaypoint).marker = mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
+            mapParser.waypoints.get(currentWaypoint).marker =
+                    mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
         }
     }
 
@@ -313,5 +318,14 @@ public class MapsActivity extends AppCompatActivity
         alert.setTitle(R.string.waypoint_completed_title);
         alert.setMessage(R.string.waypoint_completed_message);
         alert.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("currentWaypoint", currentWaypoint);
+        editor.commit();
     }
 }
