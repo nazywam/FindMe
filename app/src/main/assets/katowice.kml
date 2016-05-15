@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Untitled map</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>Untitled layer</name>
+			<Placemark>
+				<name>Punkt widokowy. </name>
+				<description><![CDATA[Punkt widokowy. Jesteś na hałdzie czyli antropogenicznym wzgórzu w Katowicach-Kostuchnie na wysokości 339 m n.p.m. przy kopalni Murcki. Widać z niej Górny Śląsk i Beskidy a przy ładnej pogodzie Tatry. Z góry warto przyjrzeć się ponad stuletniemu kompleksowi kopalni, w którym zachowało się sporo zabytkowych obiektów. Zrób zdjęcie panoramy Katowic, miasta które właśnie zaczynasz zwiedzać z naszą aplikacją. W ostatnim punkcie pokażesz zdjęcie Walcusiowi.#1#photo1.jpg#modern1.png]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<Point>
+					<coordinates>19.008820000000014,50.184587,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Kopalnie</name>
+				<description><![CDATA[Kopalnie w Katowicach powstawały już od połowy XVIII wieku i było ich (większych i mniejszych) aż 58. Czy wiesz ile kopalń działa obecnie? 3, 4, 5 a może więcej?<br>Jesteś na terenie zabytkowej Kolonii Alfreda, który należał do kopalni Alfred, połączonej w połowie XIXw. z kopalnią Hohenlohe. W latach 20. XXw. kopalnia przekształciła część swoich zabudowań na mieszkania dla górników. Zatem ta osada to najstarsze lofty. Zrób zdjęcie budynku w którym stał szyb, rozpoznasz go po dachu. W ostatnim punkcie pokażesz zdjęcie Walcusiowi.#2#photo2.jpg#modern1.png]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<Point>
+					<coordinates>19.011919000000034,50.292495,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-503-DB4436-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-503-DB4436-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>

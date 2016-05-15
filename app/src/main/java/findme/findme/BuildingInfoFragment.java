@@ -56,7 +56,7 @@ public class BuildingInfoFragment extends Fragment {
     }
 
     public void setDescription(String description) {
-        description = "Typical Android app widgets have three main components: A bounding box, a frame, and the widget's graphical controls and other elements. App widgets can contain a subset of the View widgets in Android; supported controls include text labels, buttons, and images. For a full list of available Views, see the Creating the App Widget Layout section in the Developer's Guide. Well-designed widgets leave some margins between the edges of the bounding box and the frame, and padding between the inner edges of the frame and the widget's controls.";
+        //description = "Typical Android app widgets have three main components: A bounding box, a frame, and the widget's graphical controls and other elements. App widgets can contain a subset of the View widgets in Android; supported controls include text labels, buttons, and images. For a full list of available Views, see the Creating the App Widget Layout section in the Developer's Guide. Well-designed widgets leave some margins between the edges of the bounding box and the frame, and padding between the inner edges of the frame and the widget's controls.";
         ((TextView)view.findViewById(R.id.description)).setText(description);
     }
 

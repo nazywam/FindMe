@@ -40,7 +40,7 @@ public class MapParser {
         waypoints = new ArrayList<WayPoint>();
         riddles = new ArrayList<Riddle>();
 
-        InputStream iStream = context.getAssets().open("Example.kml");
+        InputStream iStream = context.getAssets().open("katowice.kml");
         KmlLayer layer = new KmlLayer(mMap, iStream, context);
 
 
