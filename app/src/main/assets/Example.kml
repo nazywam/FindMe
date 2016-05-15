@@ -7,7 +7,7 @@
 			<name>Warstwa bez nazwy</name>
 			<Placemark>
 				<name>Start</name>
-				<description><![CDATA[Woo!# 5# point5.jpg# church1.png]]></description>
+				<description><![CDATA[Woo!# 0# point5.jpg# church1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>18.017165,50.4924908,0.0</coordinates>
@@ -15,7 +15,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Zagadka 2</name>
-				<description><![CDATA[Coś tam coś tam?# 0# point2.jpg# quiz_icon.png# tak# nie#może# 2]]></description>
+				<description><![CDATA[Coś tam coś tam?# 1# point2.jpg# quiz_icon.png# tak# nie#może# 2]]></description>
 				<styleUrl>#icon-960-4186F0</styleUrl>
 				<Point>
 					<coordinates>18.0152247,50.4921674,0.0</coordinates>
@@ -23,7 +23,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Pizzeria</name>
-				<description><![CDATA[Mniam# 5# point5.jpg# modern1.png]]></description>
+				<description><![CDATA[Mniam# 2# point5.jpg# modern1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>18.0163953,50.49209820000001,0.0</coordinates>
@@ -31,7 +31,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Skrzyżowanko</name>
-				<description><![CDATA[Mniam# 5# point5.jpg# modern1.png]]></description>
+				<description><![CDATA[Mniam# 3# point5.jpg# modern1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>18.0131578,50.489303,0.0</coordinates>
@@ -39,7 +39,7 @@
 			</Placemark>
 			<Placemark>
 				<name>Znowu cywilizacja!</name>
-				<description><![CDATA[;)#5# point5.jpg# modern1.png]]></description>
+				<description><![CDATA[;)#4# point5.jpg# modern1.png]]></description>
 				<styleUrl>#icon-503-DB4436</styleUrl>
 				<Point>
 					<coordinates>18.0091667,50.4921971,0.0</coordinates>
