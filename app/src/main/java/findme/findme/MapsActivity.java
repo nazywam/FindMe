@@ -175,14 +175,14 @@ public class MapsActivity extends AppCompatActivity
             mapParser = new MapParser(mMap, getApplicationContext());
             /*
             unlocked all waypoints
-             */
+
             for(WayPoint w : mapParser.waypoints) {
                 w.marker = mMap.addMarker(w.markerOptions);
-            }
-            /*
+            }*/
+
             mapParser.waypoints.get(currentWaypoint).marker =
                     mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
-                    */
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
@@ -231,6 +231,10 @@ public class MapsActivity extends AppCompatActivity
             //add new waypint to map
             mapParser.waypoints.get(currentWaypoint).marker =
                     mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
+            SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt("currentWaypoint", currentWaypoint);
+            editor.commit();
         }
     }
 
