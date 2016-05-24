@@ -123,7 +123,7 @@ public class MapsActivity extends AppCompatActivity
                             Log.d("HEJ!", "2 clicked");
                             break;
                         case 3:
-                            Log.d("HEJ!", "3 clicked");
+                            about();
                             break;
                     }
                 }
@@ -156,6 +156,13 @@ public class MapsActivity extends AppCompatActivity
         transaction.replace(R.id.map_container, mapFragment);
         transaction.commit();
         mapFragment.getMapAsync(this);
+    }
+
+    private void about() {
+        AboutFragment about = AboutFragment.newInstance();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.map_container, about);
+        transaction.commit();
     }
 
     @Override
