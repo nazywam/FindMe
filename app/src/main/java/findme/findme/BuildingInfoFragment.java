@@ -74,12 +74,6 @@ public class BuildingInfoFragment extends Fragment {
                 .setImageBitmap(BitmapFactory.decodeStream(is));
     }
 
-    public void setRiddleAnswers(ArrayList<String> answers) {
-        ((Button)view.findViewById(R.id.riddle_button1)).setText(answers.get(0));
-        ((Button)view.findViewById(R.id.riddle_button2)).setText(answers.get(1));
-        ((Button)view.findViewById(R.id.riddle_button3)).setText(answers.get(2));
-    }
-
     public void setType(InfoType type) {
         View infoArea = view.findViewById(R.id.info_area_layout);
         ViewGroup parent = (ViewGroup)infoArea.getParent();
@@ -95,63 +89,5 @@ public class BuildingInfoFragment extends Fragment {
         parent.removeView(infoArea);
         View C = getLayoutInflater(null).inflate(layoutId, parent, false);
         parent.addView(C);
-    }
-
-    public void setCorrectAnswer(int answer) {
-        View.OnClickListener wrongAnswerCallback = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWrongAnswerDialog();
-            }
-        };
-        View.OnClickListener goodAnswerCallback = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showGoodAnswerDialog();
-            }
-        };
-        Button btn1 = ((Button)view.findViewById(R.id.riddle_button1));
-        Button btn2 = ((Button)view.findViewById(R.id.riddle_button2));
-        Button btn3 = ((Button)view.findViewById(R.id.riddle_button3));
-        switch (answer) {
-            case 0:
-                btn1.setOnClickListener(goodAnswerCallback);
-                btn2.setOnClickListener(wrongAnswerCallback);
-                btn3.setOnClickListener(wrongAnswerCallback);
-                break;
-            case 1:
-                btn1.setOnClickListener(wrongAnswerCallback);
-                btn2.setOnClickListener(goodAnswerCallback);
-                btn3.setOnClickListener(wrongAnswerCallback);
-                break;
-            case 2:
-                btn1.setOnClickListener(wrongAnswerCallback);
-                btn2.setOnClickListener(wrongAnswerCallback);
-                btn3.setOnClickListener(goodAnswerCallback);
-                break;
-        }
-    }
-
-    private void showWrongAnswerDialog() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(getContext(), R.style.AlertDialogCustom);
-        alert.setTitle(R.string.wrong_answer_title);
-        alert.setMessage(R.string.wrong_answer_message);
-        alert.setPositiveButton("OK", null);
-        alert.show();
-    }
-
-    private void showGoodAnswerDialog() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(getContext(), R.style.AlertDialogCustom);
-        alert.setTitle(R.string.good_answer_title);
-        alert.setMessage(R.string.good_answer_message);
-        alert.setPositiveButton("OK", null);
-        final AlertDialog dialog = alert.show();
-        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                ((MapsActivity)getActivity()).goodAnswerSelected();
-            }
-        });
     }
 }

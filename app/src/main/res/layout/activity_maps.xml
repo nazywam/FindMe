@@ -3,49 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:sothree="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_maps_activity"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom"
-        sothree:umanoFadeColor="@android:color/transparent"
-        sothree:umanoInitialState="hidden"
-        sothree:umanoOverlay="true"
-        sothree:umanoPanelHeight="68dp"
-        sothree:umanoParallaxOffset="0dp"
-        sothree:umanoScrollableView="@+id/scroll_view"
-        sothree:umanoShadowHeight="4dp">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:id="@+id/main_container">
+        </FrameLayout>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/my_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:elevation="4dp"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+    </LinearLayout>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/map_container">
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <fragment
-            android:id="@+id/building_info_fragment"
-            android:name="findme.findme.BuildingInfoFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
     <ListView
         android:id="@+id/drawer"
