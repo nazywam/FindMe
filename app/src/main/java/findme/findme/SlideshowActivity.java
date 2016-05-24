@@ -68,6 +68,7 @@ public class SlideshowActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animator) {
                         logos[currentLogo].setVisibility(View.GONE);
+                        finish();
                         Intent intent = new Intent(SlideshowActivity.this, MapsActivity.class);
                         startActivity(intent);
                     }

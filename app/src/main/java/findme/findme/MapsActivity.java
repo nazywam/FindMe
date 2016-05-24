@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -65,6 +66,7 @@ public class MapsActivity extends AppCompatActivity
     private BuildingInfoFragment buildingInfoFragment;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
+    private SupportMapFragment mapFragment;
 
     private SlidingUpPanelLayout mLayout;
 
@@ -78,8 +80,13 @@ public class MapsActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        //        .findFragmentById(R.id.map);
+        mapFragment = SupportMapFragment.newInstance();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.map_container, StartInfo.newInstance());
+        transaction.commit();
+
         mapFragment.getMapAsync(this);
 
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.layout_maps_activity);
@@ -105,7 +112,20 @@ public class MapsActivity extends AppCompatActivity
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     drawerLayout.closeDrawer(drawerList);
-                    //TODO: add real actions!
+                    switch (position) {
+                        case 0:
+                            startWindow();
+                            break;
+                        case 1:
+                            navigation();
+                            break;
+                        case 2:
+                            Log.d("HEJ!", "2 clicked");
+                            break;
+                        case 3:
+                            Log.d("HEJ!", "3 clicked");
+                            break;
+                    }
                 }
             });
         }
@@ -122,6 +142,20 @@ public class MapsActivity extends AppCompatActivity
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
         }
+    }
+
+    private void startWindow() {
+        StartInfo info = StartInfo.newInstance();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.map_container, info);
+        transaction.commit();
+    }
+
+    private void navigation() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.map_container, mapFragment);
+        transaction.commit();
+        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -305,7 +339,7 @@ public class MapsActivity extends AppCompatActivity
             Point p = mMap.getProjection().toScreenLocation(latLng);
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             int px = Math.round(MAP_HEIGHT_DP * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-            p.y += findViewById(R.id.map).getHeight() / 2 - px/2 - 40;
+            p.y += mapFragment.getView().getHeight() / 2 - px/2 - 40;
             latLng = mMap.getProjection().fromScreenLocation(p);
             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng), 500, null);
         }

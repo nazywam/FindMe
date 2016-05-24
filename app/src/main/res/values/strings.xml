@@ -15,5 +15,8 @@
         <item>Path</item>
         <item>About</item>
     </string-array>
+    <string name="welcome_text" >Europejskie Dni Dziedzictwa 2016 pod hasłem „Gdzie duch spotyka się z przestrzenią – świątynie, pomniki, dzieła sztuki”.
+Zapraszamy do zwiedzania Katowic z aplikacją „Znajdź mnie – EDD 2016”, do robienia zdjęć w wyznaczonych miejscach i dotarcia do ostatniego, 14. punktu w wyznaczone dni i godziny. Czekamy na Ciebie; w niedziele 11. i 18.IX. od 11.00 do 16.00 albo we środę 21.IX. w godzinach 9.00-18.00. Uwaga!!! Konkurs fotograficzny z Walcusiem (w punkcie 14. dowiesz się o co chodzi).</string>
+    <string name="start_title">Start</string>
 
 </resources>
