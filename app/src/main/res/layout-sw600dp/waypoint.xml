@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/building_picture"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +34,7 @@
 
 
             <ImageView
-                android:id="@+id/building_picture"
+                android:src="@drawable/walcus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

@@ -156,7 +156,7 @@ public class PathFragment extends Fragment implements OnMapReadyCallback,
                 updateCamera();
                 return true;
             case R.id.action_next:
-                if(currentWaypoint == mapParser.waypoints.size()) return true;
+                if(currentWaypoint == mapParser.waypoints.size()-1) return true;
                 ++currentWaypoint;
                 updateBuildingInfo();
                 updateCamera();

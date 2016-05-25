@@ -25,23 +25,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:src="@drawable/poster" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/welcome_text"
+                android:layout_margin="20dp"
                 android:textSize="22sp"/>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:src="@drawable/walcus" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:src="@drawable/logo1a" />
 
         </LinearLayout>
