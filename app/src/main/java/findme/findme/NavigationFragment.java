@@ -56,7 +56,6 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
     private Marker currentMarker;
     private BuildingInfoFragment buildingInfoFragment;
     private SupportMapFragment mapFragment;
-
     private SlidingUpPanelLayout mLayout;
 
     public NavigationFragment() {
@@ -79,7 +78,6 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
         View view = inflater.inflate(R.layout.fragment_navigation, container, false);
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         currentWaypoint = sharedPreferences.getInt("currentWaypoint", 0);
-        mapParser = null;
 
         mapFragment = SupportMapFragment.newInstance();
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -99,16 +97,6 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
         if(requestCode == 0){ //TODO proper request window
             if(grantResults[0] == PackageManager.PERMISSION_GRANTED || grantResults[1] == PackageManager.PERMISSION_GRANTED){
@@ -118,6 +106,7 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
             }
         }
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -149,9 +138,7 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
             mapParser.waypoints.get(currentWaypoint).marker =
                     mMap.addMarker(mapParser.waypoints.get(currentWaypoint).markerOptions);
 */
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
+        } catch (IOException | XmlPullParserException e) {
             e.printStackTrace();
         }
 

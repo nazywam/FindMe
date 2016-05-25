@@ -20,6 +20,7 @@ public class MapsActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
 
     private NavigationFragment navigationFragment;
+    private PathFragment pathFragment;
     private Fragment currentFragment;
 
     @Override
@@ -34,6 +35,7 @@ public class MapsActivity extends AppCompatActivity {
         setDrawer();
 
         navigationFragment = NavigationFragment.newInstance();
+        pathFragment = PathFragment.newInstance();
     }
 
     private void setDrawer() {
@@ -56,7 +58,7 @@ public class MapsActivity extends AppCompatActivity {
                             navigation();
                             break;
                         case 2:
-                            Log.d("HEJ!", "2 clicked");
+                            path();
                             break;
                         case 3:
                             about();
@@ -101,6 +103,13 @@ public class MapsActivity extends AppCompatActivity {
         transaction.replace(R.id.main_container, about);
         transaction.commit();
         currentFragment = about;
+    }
+
+    private void path() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_container, pathFragment);
+        transaction.commit();
+        currentFragment = pathFragment;
     }
 
     @Override

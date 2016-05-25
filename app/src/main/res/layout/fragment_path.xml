@@ -4,10 +4,32 @@
     android:layout_height="match_parent"
     tools:context="findme.findme.PathFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_panel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="bottom"
+        sothree:umanoFadeColor="@android:color/transparent"
+        sothree:umanoInitialState="hidden"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="68dp"
+        sothree:umanoParallaxOffset="0dp"
+        sothree:umanoScrollableView="@+id/scroll_view"
+        sothree:umanoShadowHeight="4dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map_container">
+        </FrameLayout>
+
+        <fragment
+            android:id="@+id/building_info_fragment"
+            android:name="findme.findme.BuildingInfoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
 </FrameLayout>
