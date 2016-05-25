@@ -23,5 +23,7 @@ Zapraszamy do zwiedzania Katowic z aplikacją „Znajdź mnie – EDD 2016”, d
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_text">Aplikację przygotowali specjalnie na EDD 2016, dla Stowarzyszenia na rzecz dzieci i młodzieży KORCZAK; Angelika Serwa, Michał Praszmo i Marcel Rzepka. Graficznie oprawiła Katarzyna Szczepańczyk, Walcusia wymyśliła i wykonała Joanna Kuśnierz, trasę i teksty opracowała Ewa Grzegorzak-Łoposzko, w ramach Hack Silesia #2 organizowanego przez Hackerspace Silesia.</string>
     <string name="about_title">O aplikacji</string>
+    <string name="action_before">Wstecz</string>
+    <string name="action_next">Dalej</string>
 
 </resources>

@@ -14,6 +14,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -34,6 +37,7 @@ import java.util.List;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.LOCATION_HARDWARE;
 
 public class PathFragment extends Fragment implements OnMapReadyCallback,
         SlidingUpPanelLayout.PanelSlideListener {
@@ -51,6 +55,7 @@ public class PathFragment extends Fragment implements OnMapReadyCallback,
 
     public static PathFragment newInstance() {
         PathFragment fragment = new PathFragment();
+        fragment.setHasOptionsMenu(true);
         return fragment;
     }
 
@@ -92,9 +97,8 @@ public class PathFragment extends Fragment implements OnMapReadyCallback,
         } catch (IOException | XmlPullParserException e) {
             e.printStackTrace();
         }
-
-        LatLng startPosition = mapParser.waypoints.get(currentWaypoint).location;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17.0f));
+        LatLng position = mapParser.waypoints.get(currentWaypoint).location;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 17.0f));
         updateBuildingInfo();
         mLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
     }
@@ -105,6 +109,11 @@ public class PathFragment extends Fragment implements OnMapReadyCallback,
         buildingInfoFragment.setTitle(w.title);
         buildingInfoFragment.setDescription(w.description);
         buildingInfoFragment.setImage(w.descriptionImagePath);
+    }
+
+    private void updateCamera() {
+        LatLng position = mapParser.waypoints.get(currentWaypoint).location;
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 17.0f), 500, null);
     }
 
     @Override
@@ -129,6 +138,31 @@ public class PathFragment extends Fragment implements OnMapReadyCallback,
             Point p = mMap.getProjection().toScreenLocation(latLng);
             latLng = mMap.getProjection().fromScreenLocation(p);
             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng), 500, null);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.path_actions, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_before:
+                if(currentWaypoint == 0) return true;
+                --currentWaypoint;
+                updateBuildingInfo();
+                updateCamera();
+                return true;
+            case R.id.action_next:
+                if(currentWaypoint == mapParser.waypoints.size()) return true;
+                ++currentWaypoint;
+                updateBuildingInfo();
+                updateCamera();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
