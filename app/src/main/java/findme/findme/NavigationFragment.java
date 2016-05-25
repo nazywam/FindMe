@@ -177,6 +177,7 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
     }
 
     void checkWaypointCompletion(LatLng myPos){
+        if(currentWaypoint == mapParser.waypoints.size()-1) return;
         float[] result = new float[1];
         Location.distanceBetween(myPos.latitude, myPos.longitude, mapParser.waypoints.get(currentWaypoint).location.latitude, mapParser.waypoints.get(currentWaypoint).location.longitude, result);
 
@@ -209,7 +210,6 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
     }
     @Override
     public boolean onMarkerClick(Marker marker) {
-        showWaypointCompletionDialog();
         WayPoint w = mapParser.findWaypoint(marker);
         if(w != null) {
             buildingInfoFragment.setType(BuildingInfoFragment.InfoType.WAYPOINT);
