@@ -3,12 +3,15 @@ package findme.findme;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
@@ -206,6 +209,7 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
     }
     @Override
     public boolean onMarkerClick(Marker marker) {
+        showWaypointCompletionDialog();
         WayPoint w = mapParser.findWaypoint(marker);
         if(w != null) {
             buildingInfoFragment.setType(BuildingInfoFragment.InfoType.WAYPOINT);
@@ -258,10 +262,8 @@ public class NavigationFragment extends Fragment implements OnMapReadyCallback, 
     }
 
     private void showWaypointCompletionDialog() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(getContext(), R.style.AlertDialogCustom);
-        alert.setTitle(R.string.waypoint_completed_title);
-        alert.setMessage(R.string.waypoint_completed_message);
-        alert.show();
+        Intent myIntent = new Intent(getActivity(), WaypointFoundActivity.class);
+        getActivity().startActivity(myIntent);
     }
 
     @Override
