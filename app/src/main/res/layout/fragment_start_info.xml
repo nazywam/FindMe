@@ -47,6 +47,14 @@
                 android:layout_margin="15dp"
                 android:src="@drawable/logo1a" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="@string/start_button"
+                android:background="@drawable/button_style"
+                android:id="@+id/start_button"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

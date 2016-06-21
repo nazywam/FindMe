@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class StartInfo extends Fragment {
 
@@ -29,18 +31,25 @@ public class StartInfo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_start_info, container, false);
+        View v = inflater.inflate(R.layout.fragment_start_info, container, false);
+        final Button button = (Button) v.findViewById(R.id.start_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mListener.onStartButtonClick();
+            }
+        });
+        return v;
     }
 
     @Override
     public void onAttach(Context context) {
-        super.onAttach(context);/*
-        if (context instanceof OnFragmentInteractionListener) {
+        super.onAttach(context);
+        try {
             mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
                     + " must implement OnFragmentInteractionListener");
-        }*/
+        }
     }
 
     @Override
@@ -60,7 +69,6 @@ public class StartInfo extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onStartButtonClick();
     }
 }

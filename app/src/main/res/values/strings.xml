@@ -22,5 +22,6 @@ Zapraszamy do zwiedzania Katowic z aplikacją „Znajdź mnie – EDD 2016”, d
     <string name="about_title">O aplikacji</string>
     <string name="action_before">Wstecz</string>
     <string name="action_next">Dalej</string>
+    <string name="start_button">START</string>
 
 </resources>

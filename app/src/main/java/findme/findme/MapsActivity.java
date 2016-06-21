@@ -16,8 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MapsActivity extends AppCompatActivity {
+public class MapsActivity extends AppCompatActivity implements StartInfo.OnFragmentInteractionListener {
     private DrawerLayout drawerLayout;
+    private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
     private NavigationFragment navigationFragment;
@@ -44,7 +45,7 @@ public class MapsActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         String[] drawerStrings = getResources().getStringArray(R.array.drawer_items);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        final ListView drawerList = (ListView) findViewById(R.id.drawer);
+        drawerList = (ListView) findViewById(R.id.drawer);
         if(drawerList != null) {
             drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.draw_list_item, drawerStrings));
             drawerList.setOnItemClickListener(new ListView.OnItemClickListener() {
@@ -134,5 +135,11 @@ public class MapsActivity extends AppCompatActivity {
     public void onBackPressed() {
         if(currentFragment != navigationFragment || !((NavigationFragment) currentFragment).backPressed())
             super.onBackPressed();
+    }
+
+    @Override
+    public void onStartButtonClick() {
+        navigation();
+        drawerList.setItemChecked(1, true);
     }
 }
