@@ -22,4 +22,5 @@
         <item>Trasa</item>
         <item>O aplikacji</item>
     </string-array>
+    <string name="start_button">START</string>
 </resources>
